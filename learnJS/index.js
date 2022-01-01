@@ -164,3 +164,29 @@
 // let arr = ["nap", "teachers", "cheaters", "PAN", "ear", "era", "hectares"];
 // console.log(aclean(arr));
 
+//item 5.9
+// function sumSalaries(salaries) {
+//    let sum = 0;
+//    for (let salary of Object.values(salaries)) {
+//       sum = sum + salary;
+//    }
+//    return sum;
+// }
+// let salaries = {
+//    "John": 100,
+//    "Pete": 300,
+//    "Mary": 250
+// };
+// console.log(sumSalaries(salaries));
+
+// function count(user) {
+//    let numLength = Object.values(user).length;
+//    return numLength;
+// }
+// let user = {
+//    name: 'John',
+//    age: 30,
+//    num: +375
+// };
+// console.log(count(user));
+
