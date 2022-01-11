@@ -162,3 +162,33 @@
 //    return typeof(a + b);
 // }
 // typeOfSum('a' + 7);
+
+// let a = 1;
+// let b = 0;
+// let c = a / b;
+// console.log(c);
+// console.log(typeof(c));
+
+// const RS = 'rs';
+// console.log(7 * 3 + (4 / 2) - (8 + (2 - 1)));
+// console.log(7 * 3 + (4 / 2) - 8 + 2 - 1);
+// console.log(Boolean('13px' < '14'));
+
+
+//const showRS = (year, quarter) => year + quarter;
+
+//const showRS = (text = year + quarter) => text
+
+// const showRS = (year, quarter) => {return year + quarter}
+
+//  const showRS = (year, quarter) => {return year, quarter}
+// console.log('RSSchool ' + showRS('2021', 'Q3'));
+
+// let message = 'asddddpppi';
+// console.log(message[message.length - 1]);
+
+// let i = 0; let c = 0; 
+// const str = 'Rolling Scopes School'; 
+// while (i < str.length) { if (str[i] === 'o') { c++; } i++; } 
+// console.log(c);
+
