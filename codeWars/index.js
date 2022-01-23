@@ -206,30 +206,20 @@
 //   });
 // }
 
-function add(num1, num2) {
-   num1 = ('' + num1).split('').reverse();
-   num2 = ('' + num2).split('').reverse();
-   console.log(num1)
-   let maxNum = Math.max(num1.length, num2.length);
-   console.log(maxNum);
-   let str = [];
-   for (let i = 0; i < maxNum; i++) {
-      str.push((parseInt(num1[i]) || 0 ) + (parseInt(num2[i]) || 0 ));
-      num1 = str.reverse().join('');
-      console.log(num1);
-      return parseInt(num1);
-   }
-}
-add(1234, 33456);
+// function add(num1, num2) {
+//    num1 = ('' + num1).split('').reverse();
+//    num2 = ('' + num2).split('').reverse();
+//    console.log(num1)
+//    let maxNum = Math.max(num1.length, num2.length);
+//    console.log(maxNum);
+//    let str = [];
+//    for (let i = 0; i < maxNum; i++) {
+//       str.push((parseInt(num1[i]) || 0 ) + (parseInt(num2[i]) || 0 ));
+//       num1 = str.reverse().join('');
+//       console.log(num1);
+//       return parseInt(num1);
+//    }
+// }
+// add(1234, 33456);
 
 
-
-
-num1 = ('' + num1).split('').reverse()
-num2 = ('' + num2).split('').reverse()
-let max = Math.max(num1.length, num2.length)
-let str = [];
-for(let i = 0; i < max; i++) {
-  str.push((parseInt(num1[i]) || 0) + (parseInt(num2[i]) || 0))
-num1 = str.reverse().join('');
-}
