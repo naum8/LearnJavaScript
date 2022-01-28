@@ -190,5 +190,32 @@
 // };
 // console.log(count(user));
 
+// let new = new Date();
+// console.log(new);
 
+// let newDate = new Date(2012, 01, 20, 3, 12,);
+// console.log(newDate);
 
+// let date = new Date(2014, 0, 8);
+// function getWeekDay(date) {
+//    let days = ['ВС', 'ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ'];
+//    return days[date.getDay()];
+// }
+// console.log(getWeekDay(date));
+
+// let date = new Date(2012, 0, 3);  // 3 января 2012 года
+// function getLocalDay() {
+//    let days = ['7', '1', '2', '3', '4', '5', '6'];
+//    return days[date.getDay()];
+// }
+// console.log(getLocalDay(date));
+
+// function getDateAgo(date, days) {
+//    let dateCopy = new Date(date);
+//    dateCopy.setDate(date.getDate() - days);
+//    return dateCopy.getDate();
+// }
+// let date = new Date(2015, 0, 2);
+// console.log(getDateAgo(date, 1)); // 1, (1 Jan 2015)
+// console.log(getDateAgo(date, 2)); // 31, (31 Dec 2014)
+// console.log(getDateAgo(date, 365)); // 2, (2 Jan 2014)

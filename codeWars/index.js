@@ -222,4 +222,50 @@
 // }
 // add(1234, 33456);
 
+// сумма дву массивов и значений неизвестного количества 
+// function combine(inputs){
+//    let argsArray = [...arguments];
+//    let resultObj = {};
+//    for(let i = 0; i < arguments.length; i++){
+//      for(let key in arguments[i]){
+//        if(!resultObj[key]){
+//        resultObj[key] = arguments[i][key];
+//        }
+//        else {
+//          resultObj[key] += arguments[i][key];
+//        }
+//      }
+//    }
+//  return resultObj;
+//  }
+
+// Count the Digit 
+// function nbDig(n, d) {
+//    var o = '';
+//      for(var i = 0; i <= n; i++){
+//        o += Math.pow(i, 2);
+//      }
+//    return o.split(d).length-1
+//  }
+
+//Find the missing element between two arrays
+// function findMissing(arr1, arr2) {
+//    let index;
+//    for( let i = 0; i < arr1.length; i++) {
+//       index = arr2.indexOf(arr1[i]);
+//      if (index > -1) {
+//          arr2.splice(index, 1);
+//      } else {
+//          return arr1[i];
+//      } 
+//    }
+//  }
+
+//Maximum Triplet Sum (Array Series #7)
+// function maxTriSum(numbers){
+//    numbers.sort((a, b) => b - a)
+//    let arr = numbers.filter((e, i) => numbers.indexOf(e) === i)
+//    return arr[0] + arr[1] + arr[2]
+//  }
+
 
