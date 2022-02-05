@@ -268,4 +268,81 @@
 //    return arr[0] + arr[1] + arr[2]
 //  }
 
+// Создайте функцию, которая принимает целое число в качестве аргумента. Сложите все числа от 1 до числа, которое вы передали функции. Например, если на входе 4, ваша функция должна вернуть 10, потому что 1 + 2 + 3 + 4 = 10.
+// function numSum(x) {
+//    let total = 0;
+//    for (let i = 1; i <= x; i++) {
+//       total = total +i;
+//    }
+//    console.log(total);
+// }
+// numSum(4);
 
+// Создайте функцию, которая принимает массив в качестве аргумента и возвращает true или false в зависимости от того, является ли среднее всех элементов в массиве целым числом или нет. Предусмотреть валидацию на некорректные данные, в расчете принимаем только элементы типа number.
+// function x(arr) {
+//    let arrCopy = [];
+//    let total = 0;
+//    let result = 0;
+//    for (let j = 0; j <= arr.length; j++) {
+//       if (Number.isInteger(arr[j])) {
+//          arrCopy.push(arr[j]);
+//       }
+//    }
+//    console.log(arrCopy);
+//    for (let i = 0; i <= arrCopy.length; i++) {
+//          total = total + i;
+//    }
+//    console.log(total);
+//    result = (total / arrCopy.length);
+//    console.log(result);
+//    if (Number.isInteger(result)) {
+//       return true;
+//    } else {
+//       return false;
+//    }
+// }
+// x([1,1.1,2,3,4,5.4,5,6,7, true,9]);
+
+// function x(str) {
+//    let newStr = str.split('+');
+//    // console.log(newStr);
+//    //first number 
+//    let bynOne = newStr[0].split('бун');
+//    let kopOne = bynOne[1].split('коп');
+//    console.log(bynOne);
+//    console.log(kopOne);
+//    //second number
+//    let bynTwo = newStr[1].split('бун');
+//    let kopTwo = bynTwo[1].split('коп');
+//    console.log(bynTwo);
+//    console.log(kopTwo);
+//    let bynSum = +bynOne[0] + +bynTwo[0];
+//    console.log(bynSum);
+//    let kopSum = +kopOne[0] + +kopTwo[0]; 
+//    console.log(kopSum);
+//    if (kopSum >= 100) {
+//       bynSum = bynSum + 1;
+//       kopSum = kopSum -100;
+//       console.log(bynSum);
+//       console.log(kopSum);
+//       console.log(String(`${bynSum}бун ${kopSum}коп`));
+//    } 
+//    return String(`${bynSum}бун ${kopSum}коп`);
+// }
+// x('5бун 35коп + 4бун 68коп');
+
+// function x(matrix) {
+//    let numSum = 0;
+//    let timeNum = 0;
+//    for (let i = 1; i < matrix.length; i++) {
+//      let arr = matrix[i];
+//      console.log(arr);
+//      for (let j = 0; j <= timeNum; j++) {
+//        console.log(arr[j]);
+//        numSum = numSum + arr[j];
+//      }
+//      timeNum++;
+//    }
+//    console.log(numSum)
+// }
+// x([[1,2,3,4,5],[1,2,3,4,5],[1,2,3,4,5],[1,2,3,4,5],[1,2,3,4,5]]);

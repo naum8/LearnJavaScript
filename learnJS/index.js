@@ -219,3 +219,13 @@
 // console.log(getDateAgo(date, 1)); // 1, (1 Jan 2015)
 // console.log(getDateAgo(date, 2)); // 31, (31 Dec 2014)
 // console.log(getDateAgo(date, 365)); // 2, (2 Jan 2014)
+
+//item 5.12
+// let user = {
+//    name: "Василий Иванович",
+//    age: 35
+// };
+// let json = JSON.stringify(user);
+// console.log(json);
+// let user2 = JSON.parse(JSON.stringify(user));
+// console.log(user2);
