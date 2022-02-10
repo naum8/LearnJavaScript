@@ -123,3 +123,28 @@
 
 
 
+// let num = 0;
+// function fizzBuzz() {
+//    for (let i = 1; i <= 100; i++) {
+//       num = i
+//       if (i % 3 === 0 && i % 5 != 0 ) {
+//          num = 'Fizz';
+//       } else if (i % 5 === 0 && i % 3 != 0 ) {
+//          num = 'Buzz';
+//       } else if (i % 5 === 0 && i % 3 === 0 ) {
+//          num = 'FizzBuzz';
+//       } 
+//       console.log(num);
+//    }
+// }
+// fizzBuzz();
+let num1 = 0;
+let fizz;
+
+function fizzBuzz1() {
+   for (let i = 1; i <= 100; i++) {
+      num1 = i;
+      console.log(((num1 % 3 === 0) && (num1 % 5 === 0) && "fizzBuzz") || ((num1 % 3 === 0) && "fizz") || ((num1 % 5 === 0) && "Buzz") || num1); 
+   }
+}
+fizzBuzz1();
