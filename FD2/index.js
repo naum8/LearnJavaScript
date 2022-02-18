@@ -209,112 +209,128 @@
 // countVowelLetters('Не будете ли вы так любезны, Иван передать мне блокнот и "Известия"');
 // countVowelLetters('Архангел Уриил');
 
+// function compress(str) {
+//    let newStr = [];
+//    let newStrAll = [];
+//    let count = 1;
+//    let letters = [];
+//    letters = str.split('').sort();
+//    //console.log(letters);
+//    for (let i = 0; i < letters.length; ++i) {
+//       let x = letters[i];
+//       if (newStr[x] != undefined) {
+//          newStr[x]++;
+//          count++;
+//          //console.log(count);
+//          //console.log(letters[i]);
+//       } else {
+//          if (count !== 1) {
+//             newStrAll.push(count);
+//          }
+//          newStr[x] = 1;
+//          newStrAll.push(letters[i]);
+//          count = 1;
+//          //console.log(newStrAll)
+//       } 
+//    }
+//    newStrAll.push(count);
+//    console.log(str + ' => ' + newStrAll.join(''));
+// }
+// compress('a');
+// compress('aaa');
+// compress('aabbbaaaaaaaaaaaaaaaaaaaaaaaaa');
+// compress('aabcc');
 
+// function uncompress(str) {
+//    let newStr = [];
+//    let count = 0;
+//    let letters = [];
+//    letters = str.split('');
+//    //console.log(letters);
+//    if (str.length == 1) {
+//       console.log(str + ' => ' + str);
+//    } else {
+//       for (let i = 0; i < letters.length; i++) {
+//          if (!isNaN(letters[i])) {
+//             for (let j = 0; j < letters[i]; j++) {
+//                if (!isNaN(letters[i]) && !isNaN(letters[i + 1])) {
+//                   count = +(letters[i] + letters[i + 1]);
+//                   //console.log(count);
+//                   for (let k = 0; k < count; k++) {
+//                      newStr = newStr + letters[i-1];
+//                      //console.log(newStr);
+//                   }
+//                } else {
+//                   if (!isNaN(letters[i -1])) {
+//                      newStr = newStr;
+//                   }else {
+//                      newStr = newStr + letters[i-1];
+//                   }
+//                   //console.log(newStr);
+//                }
+//             }
+//          } else {
+//             //console.log(letters[i]);
+//          }
+//       }
+//       console.log(str + ' => ' + newStr);
+//    }
+// }
+// uncompress('a');
+// uncompress('a5');
+// uncompress('a2b3');
+// uncompress('a5');
+// uncompress('a12b1c3');
 
+// function uncompress(str) {
+//    let newStr = str.split('');
+//    let newStrAll = '';
+//    if (newStr.length == 1) {
+//       console.log(str + ' => ' + str);
+//    } else {
+//       for(let i = 0; i < newStr.length; i++) {
+//          if (isNaN(newStr[i - 1]) && +newStr[i]) {
+//             let count = '';
+//             for (let j = 0; !isNaN(newStr[i+j]); j++) {
+//                count = count + newStr[i+j]
+//             }
+//             newStrAll = newStrAll + newStr[i - 1].repeat(+count);
+//          }
+//       }
+//       console.log(str + ' => ' + newStrAll);
+//    }
+// }
+// uncompress('a');
+// uncompress('a5');
+// uncompress('a2b3');
+// uncompress('b44a51');
+// uncompress('a111b1c3');
 
-//console.log(str);
-   // newStr = str.split('').sort();
-   // //console.log(newStr);
-   // firstLetter = newStr[0].split('');
-   // //console.log(firstLetter);
-   // for(let i = 0; i <= newStr.length; i++) {
-   //    if (firstLetter[0] === newStr[i] ) {
-   //       count++;
-   //       console.log(count);
-   //    } else {
-   //       firstLetter.push(newStr[i]);
-   //       console.log(firstLetter);
-   //    }
-   // }
+const btns = document.getElementsByTagName('a');
 
-
-
-function compress(str) {
-   let newStr = [];
-   let newStrAll = [];
-   let count = 1;
-   let letters = [];
-   letters = str.split('');
-   //console.log(letters);
-   for (let i = 0; i < letters.length; ++i) {
-      let x = letters[i];
-      if (newStr[x] != undefined) {
-         newStr[x]++;
-         count++;
-         //console.log(count);
-         //console.log(letters[i]);
-      } else {
-         if (count !== 1) {
-            newStrAll.push(count);
-         }
-         newStr[x] = 1;
-         newStrAll.push(letters[i]);
-         count = 1;
-         //console.log(newStrAll)
-      } 
-   }
-   newStrAll.push(count);
-   console.log(str + ' => ' + newStrAll.join(''));
-}
-compress('a');
-compress('aaa');
-compress('aabbb');
-compress('aabcc');
-
-
-function uncompress(str) {
-   let newStr = [];
-   let newStrAll = [];
-   let count = 0;
-   let letters = [];
-   letters = str.split('');
-   console.log(letters);
-   for (let i = 0; i < letters.length; i++) {
-      if (typeof(letters[i]) === 'number') {
-         console.log(letters[i]);
-         
-      } else {
-         //console.log(letters[i]);
-      }
-   }
-
-
-}
-uncompress('a5b3')
-
-
-// function uncompress (str) {
-// 	var pos = 0;
-// 	newStr = '';
-
-// 	    while(str[pos]) {
-
-// 	    	if (str[pos+1] && isNumeric (str[pos+1])) {    		
-	        
-// 	            for (var i = 0; i < str[pos+1]; i++) {
-// 		            newStr = newStr + str[pos];
-// 		    	}    
-// 		    	pos = pos + 2;
-// 		    } else {newStr = newStr + str[pos];
-//               pos = pos + 1;
-// 		    }
-	    
-// 	}      
-// 		return console.log( str + ' => ' + newStr);
+//console.log(btns);
+// for (let i = 0; i < btns.length; i++) {
+//    btns[i].onclick = function() {
+//       makeCounter();
+//       btns[i].innerHTML = ;  
+//    }
+// }
+// function makeCounter() {
+//    let count = 0;
+//    return function() {
+//       return count++;
+//    };
 // }
 
-// function isNumeric (n){
-// return !isNaN( parseFloat(n) ) && isFinite(n);
-// }
 
+var buttons = document.getElementsByTagName('button');
 
-// compress("a");
-//compress("aaa");
-// compress("aabbb");
-// compress("aaabcc");
-// uncompress("a");
-// uncompress("a5");
-// uncompress("a2b3");
-// uncompress("a12b1c3");
-
-// Берёте всего одну переменную, которая будет содержать первую встреченную букву, затем сравниваете ее со следующей буквой из строки и если они одинаковы, то увеличиваете переменную-счётчик, а если не равно, то записываете в переменную-результат и букву и значение счетчика, после чего в переменную-букву записываете новую (ту которую встретили) букву и обнуляете счётчик
+for (var i = 0; i < buttons.length; i++) {
+	buttons[i].onclick = (function() {
+		var count = 0;
+		return function() {
+			count++;  
+			return buttons[i].innerHTML = count;
+		}
+	})();
+}
