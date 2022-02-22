@@ -306,13 +306,12 @@
 // uncompress('b44a51');
 // uncompress('a111b1c3');
 
-const btns = document.getElementsByTagName('a');
-
-//console.log(btns);
+// const btns = document.getElementsByTagName('button');
+// //console.log(btns);
 // for (let i = 0; i < btns.length; i++) {
+// 	const a = makeCounter();
 //    btns[i].onclick = function() {
-//       makeCounter();
-//       btns[i].innerHTML = ;  
+//       btns[i].innerHTML = a();  
 //    }
 // }
 // function makeCounter() {
@@ -322,15 +321,199 @@ const btns = document.getElementsByTagName('a');
 //    };
 // }
 
+// function makeCounter() {
+//    let count = 0;
+//    return function() {
+//       return count++;
+//    };
+// }
 
-var buttons = document.getElementsByTagName('button');
+// let a = makeCounter();
 
-for (var i = 0; i < buttons.length; i++) {
-	buttons[i].onclick = (function() {
-		var count = 0;
-		return function() {
-			count++;  
-			return buttons[i].innerHTML = count;
-		}
-	})();
-}
+// console.log(a());
+// console.log(a());
+// console.log(a());
+// const someFn = function() {
+// 	return "Hello!";
+//  }
+//  console.log(someFn())
+
+// function pow(a) {
+// 	return (b) => {
+// 		let result = 1;
+// 		if (b >= 0) {
+// 			for (let i = 0; i < b; i++) {
+// 				result = result * a;
+// 				//console.log(result);
+// 			}
+// 			return console.log(`${a}^${b} = ${result}`);
+// 		} else {
+// 			let newB = -b;
+// 			let result1 = 1;
+// 			//console.log(newB);
+// 			for (let i = 0; i < newB; i++) {
+// 				result = result * a;
+// 			}
+// 			result1 = 1 / result;
+// 			//console.log(result1);
+// 			return console.log(`${a}^${b} = ${result1}`);
+// 		}
+// 	}
+// }
+// const first = pow(-2)(3);
+// const second = pow(4)(2);
+// const third = pow(16)(0);
+// const fourth = pow(2)(-3);
+
+// function calculate(a) {
+// 	return (b) => {
+// 		return (c) => {
+// 			let result = '';
+// 			if (c != 0) {
+// 				switch (b) {
+// 					case '+':
+// 						result = a + c;
+// 						console.log(`${a} ${b} ${c} = ${result}`);
+// 					break;
+// 					case '*':
+// 						result = a * c;
+// 						console.log(`${a} ${b} ${c} = ${result}`);
+// 					break;
+// 					case '-':
+// 						result = a - c;
+// 						console.log(`${a} ${b} ${c} = ${result}`);
+// 					break;
+// 					case '/':
+// 						result = a / c;
+// 						console.log(`${a} ${b} ${c} = ${result}`);
+// 					break;
+// 					default:
+// 					console.log('Не верный знак');
+// 				}
+// 			} else {
+// 				console.log(`${a} ${b} ${c} = Ошибка (на ноль делить нельзя)`);
+// 			}
+			
+// 		}
+// 	}
+// }
+// const firstCalculate = calculate(1)('+')(2);
+// const secondCalculate = calculate(3)('*')(7);
+// const thirdCalculate = calculate(15)('/')(5);
+// const fourthCalculate = calculate(2)('/')(0);
+
+// let numbers = [2, 3, 5, 7, 11, 13, 17];
+// function currentSums (arr) {
+// 	let newNum = [];
+// 	let newStrPlus = [];
+// 	let str;
+// 	arr.reduce((sum, total, i) => {				
+// 		sum = sum + total;
+//       //console.log(sum);
+// 		newNum.push(sum);
+//       //console.log(newNum);
+// 		(i === 0) ? str = sum : str = str + '+' + total;	
+//       //console.log(str);			
+// 		newStrPlus.push(str);
+//       //console.log(newStrPlus);	
+// 		return sum;
+// 	},0);
+// 	return console.log(`[${newStrPlus}] = [${newNum}]`);
+// }
+// currentSums(numbers);
+
+// function currentSums(numbers) {
+//    let newArr = [];
+//    let sumStr = '';
+//    let sum = numbers.reduce(function (previousValue, currentValue) {
+//       sumStr= sumStr+ ' ' + currentValue ;
+//       let sum1 =  previousValue + currentValue;
+//       newArr.push(previousValue + currentValue);
+//       return sum1;
+//    }, 0);
+//    console.log(sumStr.split('+'));
+//    console.log(newArr);
+//    console.log(sum);
+// }
+// currentSums(numbers); // [2,5,10,17,28,41,58]
+
+// const str = "Каждый охотник желает знать, где сидит фазан."; 
+// function firstLettersFromString(str) {
+//    let newStr = str.split(' ');
+//    let firstLetters = '';
+//    //console.log(newStr);
+//    let strMap = newStr.map(function(item) {
+//       firstLetters += item[0];
+//       return firstLetters.split('');
+//    })
+//    //console.log(firstLetters.split(''));
+//    return firstLetters.split('');
+// }
+// const newArr = firstLettersFromString(str);
+// console.log(newArr); // [К, о, ж, з, г, с, ф]
+
+// const startArray = [-1, 2, 3.5, -12, 4, 1.25, 16]; 
+// function filteredArray(startArray) {
+//    let result = startArray.filter(function(elem) {
+//       	if (elem >= 0 && Number.isInteger(elem)) {
+//       		return true;
+//       	} else {
+//       		return false;
+//       	}
+//       });
+//       return result;
+// }
+// const newArray = filteredArray(startArray);
+// console.log(newArray);  // [2, 4, 16]
+
+// const array1 = [false, 1, 0, NaN, 2, 0, null, 3, 4, 0, 5];
+// const array2 = [0, 2, 0, 4, 0, 6];
+// const array3 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+// function moveZeros(str) {
+//    let newStr = str.sort((a, b) => {
+//       if (a !== 0 && b === 0) return -1;
+//       if (a === 0 && b !== 0) return 1;
+//       return 0;
+//    });
+//    //console.log(newStr);
+//    return newStr;
+// }
+// console.log(moveZeros(array1)); //[ false, 1, NaN, 2, null, 3, 4, 5, 0, 0, 0 ]
+// console.log(moveZeros(array2)); //[ 2, 4, 6, 0, 0, 0 ]
+// console.log(moveZeros(array3)); //[ 1, 2, 3, 4, 5, 6, 7, 8, 9, 0 ]
+
+// function changeArray(arr) {
+//    //console.log(arr.length);
+//    if (arr.length == '2') {
+//       return console.log(arr.reverse());
+//    } else if (arr.length % 2 === 0) {
+//       //console.log(arr)
+//       let count = arr.length / 2;
+//       //console.log(count);
+//       let arrStart = arr.slice(0, count);
+//       //console.log(arrStart);
+//       let arrEnd = arr.slice(count, arr.length);
+//       //console.log(arrEnd);
+//       let newArr = arrEnd.concat(arrStart);
+//       return console.log(newArr);
+//    } else if (arr.length % 2 != 0) {
+//       //console.log(arr);
+//       let count = (arr.length - 1) / 2;
+//       //console.log(count);
+//       let arrStart = arr.slice(0, count );
+//       //console.log(arrStart);
+//       let arrEnd = arr.slice(count + 1, arr.length);
+//       //console.log(arrEnd);
+//       let arrCenter = count + 1;
+//       //console.log(arrCenter);
+//       let newArr = arrEnd.concat(arrCenter).concat(arrStart);
+//       return console.log(newArr);
+//    } else {
+//       return console.log('error');
+//    }
+// }
+// changeArray([ 1, 2, 3, 4, 5 ]); //[ 4, 5, 3, 1, 2 ]
+// changeArray([ 1, 2, 3, 4, 5, 6, 7]); //[ 5, 6, 7, 4, 1, 2, 3 ]
+// changeArray([ 1, 2 ]); //[ 2, 1 ] 
+// changeArray([ 1, 2, 3, 4, 5, 6, 7, 8]);  //[ 5, 6, 7, 8, 1, 2, 3, 4 ]
+
