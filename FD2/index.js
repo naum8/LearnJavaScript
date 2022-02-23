@@ -517,3 +517,55 @@
 // changeArray([ 1, 2 ]); //[ 2, 1 ] 
 // changeArray([ 1, 2, 3, 4, 5, 6, 7, 8]);  //[ 5, 6, 7, 8, 1, 2, 3, 4 ]
 
+const month = +prompt('enter month from 1 to 12', '1');
+const year = +prompt('enter a four-digit year', '2019');
+for (let i = 0; i < 1; i++) {
+      if (month != '' && year != '' && month != null && year != null) {
+         //console.log(`Month = ${month} and Year = ${year}`);  
+         i++
+      } else {
+         i--;
+      }
+}
+const titleUser = document.querySelector('.calendar__h2');
+
+function createCalendar(month=0, year=0, el=0) {
+   let monthArr = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+   let monthNum = month - 1;
+   //console.log(monthArr[monthNum]);
+   //console.log(monthNum);
+   let yearNum = year;
+   //console.log(yearNum);
+   titleUser.innerHTML = monthArr[monthNum] + ' ' + yearNum;
+   let dateAll = new Date(yearNum, monthNum);
+   //console.log(dateAll);
+
+   let table = '<table><tr><th>ПН</th><th>ВТ</th><th>СР</th><th>ЧТ</th><th>ПТ</th><th>СБ</th><th>ВС</th></tr><tr>';
+
+   for (let i = 0; i < getDay(dateAll); i++) {
+      table += '<td></td>';
+   }
+
+   while (dateAll.getMonth() == monthNum ) {
+      table = table + '<td>' + dateAll.getDate() + '</td>';
+      console.log(dateAll.getDate());
+      if (getDay(dateAll) % 7 == 6) { 
+         table += '</tr><tr>';
+      }
+      dateAll.setDate(dateAll.getDate() + 1);
+   }
+
+   el.innerHTML = table;
+}
+function getDay(date) {
+   let dayOne = date.getDay();
+   //console.log(dayOne);
+   if (dayOne == 0){
+      dayOne = 7;
+      //console.log(dayOne);
+   }
+   return dayOne - 1;
+}
+createCalendar(month, year, calendarTable);
+
+
