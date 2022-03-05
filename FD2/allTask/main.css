@@ -1,4 +1,4 @@
-.calendar__all {
+/* .calendar__all {
    width: 600px;
    height: 500px;
    border: 3px solid rgb(28, 59, 128);
@@ -19,6 +19,7 @@
    color: rgb(28, 59, 128);
    font-size: 25px;
    margin: 5px 0 10px;
+   width: 180px;
 }
 table {
    margin: 0 auto;
@@ -32,3 +33,14 @@ th, td {
    text-align: center;
 }
 th {background-color: rgb(28, 59, 128,0.15);}
+.calendar__month-and-btn {
+   display: flex;
+   justify-content: center;
+}
+.calendar__bnt {
+   width: 50px;
+   height: 45px;
+   background: none;
+   border: none;
+   cursor: pointer;
+} */
