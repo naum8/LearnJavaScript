@@ -369,8 +369,10 @@
 // 	return (b) => {
 // 		return (c) => {
 // 			let result = '';
-// 			if (c != 0) {
-// 				switch (b) {
+// 			if (c === 0 && b === '/') {
+// 				console.log(`${a} ${b} ${c} = Ошибка (на ноль делить нельзя)`);
+// 			} else {
+//             switch (b) {
 // 					case '+':
 // 						result = a + c;
 // 						console.log(`${a} ${b} ${c} = ${result}`);
@@ -389,18 +391,16 @@
 // 					break;
 // 					default:
 // 					console.log('Не верный знак');
-// 				}
-// 			} else {
-// 				console.log(`${a} ${b} ${c} = Ошибка (на ноль делить нельзя)`);
 // 			}
-			
 // 		}
 // 	}
+// }
 // }
 // const firstCalculate = calculate(1)('+')(2);
 // const secondCalculate = calculate(3)('*')(7);
 // const thirdCalculate = calculate(15)('/')(5);
 // const fourthCalculate = calculate(2)('/')(0);
+// const fourthCalculate1 = calculate(2)('*')(0);
 
 // let numbers = [2, 3, 5, 7, 11, 13, 17];
 // function currentSums (arr) {
@@ -568,23 +568,27 @@
 // }
 // createCalendar(month, year, calendarTable);
 
-// function GetCounter(a) {
-//    var self = this;
-//    self.counter = a;
-//    self.count = function(b) {
-//       self.counter = self.counter + b;
-//       return self;
-//    };
-//    self.log = function() {
-//       console.log(self.counter);
-//       return self;
-//    };
-//    self.reset = function() {
-//       self.counter = 0;
-//       return self;
-//    };
+// function getCounter(a=0) {
+//    this.a = a;
+//       return {
+//          a: a,
+//          log: function() {
+//             console.log(a);
+//             return this;
+//          },
+//          count: function(b) {
+//             a = a + b;
+//             return this;
+//          },
+
+//          reset: function() {
+//             a = 0;
+//             return this;
+//          },
+//       };
+
 // }
-// var counter = new GetCounter(5);
+// let counter = getCounter(5);
 // counter.log().count(4).log().count(3).log().reset().log().count(8).log();
 
 // const month = 2;
