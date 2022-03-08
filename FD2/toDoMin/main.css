@@ -25,15 +25,19 @@ body {
    margin: 20px 0;
 }
 .container__input {
-   width: 327px;
+   width: 305px;
    height: 35px;
    font-size: 20px;
    border: 2px solid black;
-   border-radius: 10px
+   border-radius: 10px;
+   padding-left: 10px;
 }
-.container__input:{
+.container__input:focus {
    border: 2px solid black;
 }
+/* .container__input:focus-visible {
+   border: 2px solid black;
+} */
 .container__add {
    height: 40px;
 }
@@ -46,8 +50,16 @@ body {
    padding-top: 3px;
    font-size: 15px;
 }
-.btn-style:hover {
+.btn-style-hover:hover {
    background-color: black;
    color: white;
    transition: 0.7s;
+}
+.container__list {
+   padding-left: 25px;
+}
+.container__list li{
+   padding-left: 4px;
+   font-size: 25px;
+
 }
