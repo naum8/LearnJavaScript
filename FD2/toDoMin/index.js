@@ -34,36 +34,18 @@ deleteBtn.addEventListener('click', function() {
       deleteBtn.setAttribute('disabled','');
       deleteBtn.classList.remove('btn-style-hover')
    };
-
 });
 
-function listArr(){
-   var el=Array.from(list.children);
-   for (let i=0;i,el.length;i++){
+listToDo.addEventListener('click', function(event) {
+   let item = event.target;
+   let itemNew = document.createElement('input');
+   itemNew.value = item.innerHTML;
+   item.innerHTML = '';
+   item.appendChild(itemNew);
+   itemNew.classList.add('itemNew-class');
+   itemNew.focus();
+   itemNew.addEventListener('blur', function() {
+      item.innerHTML = itemNew.value;
+   });
+});
 
-     el[i].firstChild.onclick=function(){
-       if (el[i].children.length===1){
-         el[i].firstChild.className='none';
-         var newInput=document.createElement('input');
-         newInput.value=el[i].firstChild.innerHTML;
-         el[i].appendChild(newInput);
-         newInput.className='block';
-         el[i].lastChild.focus();
-       } 
-       else{
-         el[i].firstChild.className='none';
-         el[i].lastChild.className='block';
-         el[i].lastChild.focus();
-       }
-     el[i].lastChild.onblur=function(){
-             el[i].firstChild.innerHTML=el[i].lastChild.value;
-             el[i].firstChild.className='block';
-             el[i].lastChild.className='none';
-             el[i].lastChild.onblur();
-
-           }
-     }
-   }
-
-  }
-  listArr();

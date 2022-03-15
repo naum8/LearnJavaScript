@@ -61,5 +61,9 @@ body {
 .container__list li{
    padding-left: 4px;
    font-size: 25px;
-
+}
+.itemNew-class{
+   width: 150px;
+   font-size: 25px;
+   height: 30px;
 }

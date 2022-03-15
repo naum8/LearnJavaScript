@@ -677,15 +677,93 @@
 // };
 // createCalendar(month, year, calendarTable);
 
+// var x = 'dsds';
+// let y = '1111';
+// console.log(this.x);
+// console.log(this.y);
 
+// for(let i = 0; i < 10; i++) {
+//     console.log(i);
+// }
 
+// const a = {a: 'a1',};
+// const b = a;
+// b.key = 'cccc';
+// console.log(a.key)
 
+// function calcWithFunc(num, func) {
+//   if (func === undefined) {
+//     return num;
+//   } else {
+//     return func(num);
+//   };
+// };
+// function zero(func) {
+//   return calcWithFunc(0, func);
+// };
+// function one(func) {
+//   return calcWithFunc(1, func);
+// };
+// function two(func) {
+//   return calcWithFunc(2, func);
+// };
+// function three(func) {
+//   return calcWithFunc(3, func);
+// };
+// function four(func) {
+//   return calcWithFunc(4, func);
+// };
+// function five(func) {
+//   return calcWithFunc(5, func);
+// };
+// function six(func) {
+//   return calcWithFunc(6, func);
+// };
+// function seven(func) {
+//   return calcWithFunc(7, func);
+// };
+// function eight(func) {
+//   return calcWithFunc(8, func);
+// };
+// function nine(func) {
+//   return calcWithFunc(5, func);
+// };
+// function times(right) {
+//   return function (left) {
+//     return `${left} * ${right} = ` + left * right;
+//   };
+// };
+// function plus(right) {
+//   return function (left) {
+//     return `${left} + ${right} = ` + (left + right);
+//   };
+// };
+// function minus(right) {
+//   return function (left) {
+//     return `${left} - ${right} = ` + (left - right);
+//   };
+// };
+// function dividedBy(right) {
+//   return function (left) {
+//     if (right === 0) {
+//       return `${left} / ${right} = error`;
+//     } else {
+//       return `${left} / ${right} = ` + (left / right);
+//     }
+//   };
+// };
+// console.log(five(times(seven())));
+// console.log(four(plus(nine())));
+// console.log(eight(minus(three())));
+// console.log(six(dividedBy(two())));
+// console.log(six(dividedBy(zero())));
 
-
-
-
-
-
+// let obj = {
+//    a: 2,
+//    'a': 5
+// }
+//console.log(obj['a']);
+//console.log(obj[a]);
 
 
 

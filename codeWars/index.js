@@ -346,3 +346,112 @@
 //    console.log(numSum)
 // }
 // x([[1,2,3,4,5],[1,2,3,4,5],[1,2,3,4,5],[1,2,3,4,5],[1,2,3,4,5]]);
+
+// function highAndLow(numbers){
+//    let newNumber = numbers.split(' ');
+//    let arr = [];
+//    let result = '';
+//    //console.log(newNumber);
+//    let total = newNumber.sort(function(a, b) {
+//       return a - b;
+//    });
+//    //console.log(total);
+//    let minItem = total[0];
+//    //console.log(minItem);
+//    let maxItem = total[total.length - 1];
+//    //console.log(maxItem);
+
+//    arr.push(maxItem);
+//    arr.push(minItem);
+   
+//    result = arr.join(' ');
+//    //console.log(result);
+//    return result;
+// }
+
+// highAndLow("1 2 3 4 5");  // return "5 1"
+// highAndLow("1 2 -3 4 5"); // return "5 -3"
+// highAndLow("1 9 43 4 -5"); // return "9 -5"
+
+// function disemvowel(str) {
+//    const letters = ['A','E','I','O','U','a','e','i','o','u'];
+//   let newStr = '';
+//   for (let i = 0; i <= str.length; i++) {
+//     let char = str.charAt(i);
+//     if (letters.indexOf(char) == -1) {
+//       newStr = newStr + char;
+//     }
+//   }
+//     return newStr;
+// }
+
+// function isIsogram(str){
+//    let newStr = str.toLowerCase().split('').sort();
+//    console.log(newStr);
+//    for(let i = 0; i < newStr.length; i++) {
+//       if (newStr[i] === newStr[i+1]) {
+//          return false;
+//       };
+//    };
+//    return true;
+// };
+// isIsogram('Dermatoglyphics');
+// isIsogram('aba');
+// isIsogram('moOse');
+
+// function explode(s) {
+//    let str = '';
+//    for(let i = 0; i < s.length; i++) {
+//       let num = parseInt(s[i]);
+//       //console.log(num);
+//       if(num != 0) {
+//          do {
+//             str += s[i];
+//             num--;
+//             console.log(num);
+//          } while (num != 0);
+//       };
+//    };
+//    //console.log(str);
+//    return str;
+// }
+// explode("312"); //"333122"
+// explode("102269"); //"12222666666999999999"
+
+// function explode(s) {
+//    let str = ``;
+//    for (let i = 0; i < s.length; i++) {
+//      let j = parseInt(s[i]);
+//      console.log(j);
+//      if (j !== 0) {
+//        do {
+//          str = str + s[i];
+//          j--;
+//          console.log(j);
+//        } while (j !== 0);
+//      }
+//    }
+//    console.log(str);
+//    return str;
+//  }
+
+// function getParticipants(h){
+//    for(var i=0,k=1;i<h;i+=k++);
+//    return k;
+//  }
+
+// function duplicateEncode(word){
+//    let arr = word.toLowerCase().split('');
+//    let total = [];
+//    for(i in arr) {
+//       total.push(word.toLowerCase().split(arr[i]).length - 1 <= 1 ? '(' : ')');
+//    };
+//    return total.join('');
+// };
+// duplicateEncode("din"); //     =>  "((("
+// duplicateEncode("recede"); //   =>  "()()()"
+// duplicateEncode("Success");//  =>  ")())())"
+// duplicateEncode("(( @");//     =>  "))((" 
+
+
+
