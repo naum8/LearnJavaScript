@@ -453,5 +453,131 @@
 // duplicateEncode("Success");//  =>  ")())())"
 // duplicateEncode("(( @");//     =>  "))((" 
 
+// function nthFibo(n) {
+//    if(n === 1) {
+//       return 0;
+//    } else if (n === 2){
+//       return 1;
+//    } else {
+//       return n <= 1 ? n : nthFibo(n - 1) + nthFibo(n - 2);
+//    }
+// }
+// nthFibo(10);
 
+// function solution(number){
+//    let arr = [];
+//    for(let i = 0; i < number; i++) {
+//       // console.log(i);
+//       if(i % 3 === 0 || i % 5 === 0 ) {
+//          arr.push(i)
+//       }
+//       // console.log(arr);
+//    };
+//    let sum = arr.reduce((sum, num) => sum + num, 0);
+//    //console.log(sum);
+//    return sum;
+// };
+// solution(20);
 
+// let head = [1,2,3,4,5];
+// let tail = [1,2,3,4,5];
+// let init = [1,2,3,4,5];
+// let last = [1,2,3,4,5];
+// function showNewArr(head, tail, init, last) {
+//    let newArr = [];
+//    newArr.push(head[0]);
+
+//    tail.splice(0, 1);
+//    for(let i = 0; i < tail.length; i++) {
+//       newArr.push(tail[i]);
+//    }
+
+//    init.pop();
+//    for(let i = 0; i < init.length; i++) {
+//       newArr.push(init[i]);
+//    }
+
+//    last.splice(0, last.length -1);
+//    for(let i = 0; i < last.length; i++) {
+//       newArr.push(last[i]);
+//    }
+//    //console.log(last);
+//    //console.log(newArr);
+//    return newArr;
+// };
+// showNewArr(head, tail, init, last);
+// let arr = [[1, 2], [4, 5, 1, 1], [1], [5, 6, 7, 8, 9]];
+// function getLengthOfMissingArray(arr) {
+//    let newArr = (arr || []).map(a => a ? a.length : 0).sort((a, b) => a - b);
+//    //console.log(newArr);
+//    if(newArr.includes(0)) {
+//       return 0
+//    };
+//    for(let i = 0; i < newArr.length - 1; i++) {
+//       if(newArr[i] + 1 !== newArr[i + 1]) {
+//          return newArr[i] + 1 
+//       };
+//    };
+//    return 0
+// };
+// getLengthOfMissingArray(arr);
+// let arr = ["red", "green", "red", "blue", "blue"]; //2
+// let arr1 = ["red", "red", "red", "red", "red", "red"] //3
+// function numberOfPairs(gloves) {
+//    let num = 0;
+//    let arr = gloves.slice().sort((a,b)=>a.localeCompare(b));
+//    console.log(arr);
+//    for(let i = 0; i <= arr.length; i++) {
+//       if(arr[i] === arr[i + 1]) {
+//          num++
+//          i++
+//       };
+//    };
+//    return num
+// };
+// numberOfPairs(arr);
+// numberOfPairs(arr1);
+
+// function numberOfPairs(gloves) {
+//    let num = 0;
+//    let copyGloves = [...gloves].sort();
+//    for (let i = 0; i < copyGloves.length; i++) {
+//        if (copyGloves[i] === copyGloves[i+1]) {
+//            num++;
+//            copyGloves.splice(i, 2)
+//            i--;
+//        }
+//    }
+//    return num;
+// }
+
+// function calculate(...a) {
+//    return (...b) => {
+//       let newArr = a.concat(b)
+//       let sum = 0;
+//       // console.log(a);
+//       // console.log(b);
+//       //console.log(newArr)
+//       for(let i = 0; i < newArr.length; i++) {
+//          sum = sum + newArr[i];
+//       };
+//       return sum
+//    }
+// };
+// calculate(1)(1) // должно вернуть 2
+// calculate(1,1)(1) // должно вернуть 3
+// calculate(1,1)(1,-1) // должно вернуть 2
+// calculate(2,4)(3,7,1) // должно вернуть 17
+
+// function myLanguages(results) {
+//    //console.log(results);
+//    let arr = [];
+//    for (let i in results) {
+//       if (results[i] > 59) {
+//          arr.push(i);
+//       }
+//    }
+//    //console.log(arr);
+//    return arr.sort((a, b) => obj[b] - obj[a]);
+// }
+// myLanguages({"Java": 10, "Ruby": 80, "Python": 65})

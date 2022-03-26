@@ -44,3 +44,146 @@ th {background-color: rgb(28, 59, 128,0.15);}
    border: none;
    cursor: pointer;
 } */
+
+/* .container {
+   display: flex;
+   justify-content: center;
+   flex-direction: column;
+   align-items: center;
+}
+.container__item {
+   width: 400px;
+   height: 200px;
+   border: 2px solid black;
+   margin: 10px;
+   padding: 50px;
+   border-radius: 50px;
+}
+.container__item div{
+   margin-bottom: 25px;
+}
+.container__title {
+   font-size: 25px;
+}
+.container__item-input {
+   width: 250px;
+   padding: 5px;
+   margin-bottom: 5px;
+}
+.container__item-p {
+   text-align: center;
+   font-size: 25px;
+}
+.red {
+   border: 3px solid red;
+}
+.green {
+   border: 3px solid green;
+} */
+
+/* * {
+   margin: 0;
+   padding: 0;
+}
+body {
+   background-color: gray;
+}
+.container {
+   width: 100%;
+}
+.container__h2 {
+   font-size: 35px;
+   text-align: center;
+}
+.container__header {
+   margin: 10px;
+   text-align: center;
+}
+.container__select {
+   margin: 0 5px;
+   padding: 5px;
+   border: 2px solid #D24D57;
+   border-radius: 5px;
+}
+.create-btn, .delete-btn {
+   width: 150px;
+   height: 30px;
+   padding: 5px;
+   margin: 10px;
+   border: 2px solid #D24D57;
+   border-radius: 5px;
+}
+.create-btn:hover, .delete-btn:hover {
+   background-color: #D24D57;
+   transition: 0.8s;
+}
+.table-style {
+   margin: 20px auto;
+   text-align: center; 
+   border-collapse: collapse; 
+   border: 2px solid #D24D57;
+}
+.table-date-block {
+   width: 100px; 
+   height: 30px; 
+   border: 1px solid #D24D57;
+}
+.button-style {
+   display: block; 
+   width: 30px; 
+   height: 50px; 
+   
+   margin: 0 auto; 
+   cursor: pointer;
+}
+.table-dates {
+   width: 50px;
+   height: 30px;
+   border: 1px solid #D24D57;
+   cursor: pointer;
+}
+.table-name-weekend {
+   color: red;
+}
+.table-block {
+   margin: 5px;
+   line-height: 25px;
+   border: 2px solid #D24D57;
+   border-radius: 5px;
+   background: white;
+   cursor: pointer;
+}
+.table-dates-weekends {
+   background: #787878;
+   color: black;
+   padding: 5px;
+}
+.table-dates {
+   width: 50px;
+   height: 30px;
+
+   cursor: pointer;
+}
+.table-dates-weekends {
+   background: grey;
+   color: white;
+   padding: 5px;
+}
+.cells3 {
+   width: 300;
+}
+.table-dates-weekdays {
+   background: grey;
+}
+.color-red {
+   background: #D24D57;
+   color: white;
+} */
+
+
+
+
+
+
+
+

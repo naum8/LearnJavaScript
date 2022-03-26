@@ -765,11 +765,280 @@
 //console.log(obj['a']);
 //console.log(obj[a]);
 
+//task1 links
+// let links = document.getElementsByTagName('a');
+// for(let i = 0; i < links.length; i++) {
+//    links[i].addEventListener('mouseover', linksFun);
+// };
+// function linksFun() {
+//    this.innerHTML = this.title + ' (' + this.href + ') ';
+//    this.removeEventListener('mouseover', linksFun);
+// };
 
+// //task2 input
+// let inputs = document.getElementsByTagName('input');
+// for(let i = 0; i < inputs.length; i++) {
+//    inputs[i].addEventListener('blur', inputsFun);
+// };
+// function inputsFun() {
+//    console.log('Value input = ' + this.value);
+//    this.removeEventListener('blur', inputsFun);
+// };
 
+// //task3 Square number
+// let itemP = document.getElementsByTagName('p');
+// for(let i = 0; i < itemP.length; i++) {
+//    itemP[i].addEventListener('click', itemPFun);
+// };
+// function itemPFun() {
+//    this.innerHTML = this.innerHTML * this.innerHTML;
+//    this.removeEventListener('click', itemPFun);
+// };
 
+// //task4 input data-length
+// let dataLength = document.querySelectorAll('[data-length]');
+// for(let i = 0; i < dataLength.length; i++) {
+//    dataLength[i].addEventListener('blur', dataLengthFun);
+// };
+// function dataLengthFun() {
+//    let maxLengthTask = this.dataset.length;
+//    console.log(maxLengthTask);
+//    let maxLengthValue = this.value.length
+//    console.log(maxLengthValue);
+//    if (maxLengthTask > maxLengthValue) {
+//       this.classList.add('green');
+//    } else {
+//       this.classList.add('red');
+//    };
+// };
 
+// const month = +prompt('enter month from 1 to 12', '1');
+// const year = +prompt('enter a four-digit year', '2019');
+// for (let i = 0; i < 1; i++) {
+//       if (month != '' && year != '' && month != null && year != null) {
+//          //console.log(`Month = ${month} and Year = ${year}`);  
+//          i++
+//       } else {
+//          i--;
+//       }
+// }
 
+//calendar3 ==================================================================================================================================================
+// let years = ['Select year', 1980, 1981, 1982, 1983, 1984, 1985, 1986, 1987, 1988, 1989, 1990, 1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022];
+// let months = ['Select month', 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+// let tables = [];
 
+// let blockHeader = document.createElement('header');
+// blockHeader.classList.add('container__header');
+
+// let selMonth = document.createElement('select');
+// selMonth.setAttribute('id', 'selMonth');
+// blockHeader.appendChild(selMonth);
+
+// let selYear = document.createElement('select');
+// selYear.setAttribute('id', 'selYear');
+// blockHeader.appendChild(selYear);
+
+// function addSelectFun(item, newSelect) {
+//    newSelect.classList.add('container__select');
+//    for(let i = 0; i < item.length; i++) {
+//       let option = document.createElement('option');
+//       option.innerHTML = item[i];
+//       option.setAttribute('value', i);
+//       newSelect.appendChild(option);
+//    };
+// };
+// addSelectFun(months, selMonth);
+// addSelectFun(years, selYear);
+
+// let createBtn = document.createElement('button');
+// createBtn.setAttribute('id', 'createBtn');
+// createBtn.classList.add('create-btn');
+// createBtn.innerHTML = 'Create calendar';
+// blockHeader.appendChild(createBtn);
+
+// let deleteBtn = document.createElement('button');
+// deleteBtn.setAttribute('id', 'deleteBtn');
+// deleteBtn.classList.add('delete-btn');
+// deleteBtn.innerHTML = 'Delete calendar';
+// blockHeader.appendChild(deleteBtn);
+
+// let calendar = document.querySelector('.calendar');
+// calendar.appendChild(blockHeader);
+
+// let selMonthHtml = document.getElementById('selMonth');
+// let selYearHtml = document.getElementById('selYear');
+
+// //let deleteBtn = document.getElementById('deleteBtn')
+// deleteBtn.onclick = function () {
+//    let tableHtml = document.getElementsByTagName('table');
+//    tableHtml[0].remove();
+//    if (tableHtml.length == 0) {
+//       deleteBtn.disabled = true;
+//    };
+// };
+// let createBtnHtml = document.getElementById('createBtn');
+// createBtnHtml.onclick = function() {
+//    month = selMonthHtml.selectedIndex;
+//    year = years[selYearHtml.selectedIndex];
+//    createTable(month, year);
+//    deleteBtn.disabled = false;
+// };
+// if (selMonthHtml.selectedIndex == 0 || selYearHtml.selectedIndex == 0) {
+//    createBtnHtml.disabled = true;
+// };
+// function changeInput() {
+//    if(selMonthHtml.selectedIndex == 0 || selYearHtml.selectedIndex == 0) {
+//       createBtnHtml.disabled = true;
+//    } else {
+//       createBtnHtml.disabled = false;
+//    };
+// };
+// selMonthHtml.onchange = changeInput;
+// selYearHtml.onchange = changeInput;
+
+// function createTable(mon, ye) {
+//    let table = document.createElement('table');
+//    tables.push(tables.length);
+//    table.setAttribute('id', 'table' + tables.length);
+//    calendar.appendChild(table);
+//    table.classList.add('table-style');
+
+//    let tableBlock = document.createElement('tr');
+//    table.appendChild(tableBlock);
+//    tableBlock.classList.add('table-block');
+
+//    for(let i = 0; i < 5; i++) {
+//       let tableDateBlock = document.createElement('th');
+//       tableBlock.appendChild(tableDateBlock);
+//       tableDateBlock.classList.add('table-date-block');
+//    };
+
+//    let tableHtml = document.getElementById('table' + tables.length);
+
+//    let yearBefore = tableHtml.rows[0].cells[0];
+//    yearBefore.innerHTML = `<span class="button"> << </span>`;
+//    yearBefore.firstElementChild.onclick = function () {
+//       ye = ye - 1;
+//       displayDates();
+//    };
+//    let monthBefore = tableHtml.rows[0].cells[1];
+//    monthBefore.innerHTML = `<span class="button"> < </span>`;
+//    monthBefore.firstElementChild.onclick = function () {
+//       mon = mon != 1 ? mon - 1 : 12;
+//       displayDates();
+//    };
+
+//    let block = tableHtml.rows[0].cells[2];
+//    block.setAttribute('colspan', "3");
+
+//    let monthAfter = tableHtml.rows[0].cells[3];
+//    monthAfter.innerHTML = `<span class="button"> > </span>`;
+//    monthAfter.firstElementChild.onclick = function () {
+//       mon = mon != 12 ? mon + 1 : 1;
+//       displayDates();
+//    };
+//    let yearAfter = tableHtml.rows[0].cells[4];
+//    yearAfter.innerHTML = `<span class="button"> >> </span>`;
+//    yearAfter.firstElementChild.onclick = function () {
+//       ye = +ye + 1;
+//       displayDates();
+//    };
+//    let button = document.querySelectorAll('.button');
+//    for(let i = 0; i < button.length; i++) {
+//       button[i].classList.add('button-style');
+//    };
+//    for(let i = 0; i < 6; i++) {
+//       let tableRow = document.createElement('tr');
+//       tableRow.className = 'tableRow' + i;
+//       for (let j = 0; j < 7; j++) {
+//          let tableDate = document.createElement('td');
+//          tableRow.appendChild(tableDate);
+//          tableDate.classList.add('table-dates');
+//          tableDate.className += 'tableDate' + j;
+//       };
+//       table.appendChild(tableRow);
+//    };
+//    let numOfWeek = ['пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс'];
+//    let tableNumOfWeek = tableHtml.firstChild.nextSibling;
+  
+//    for(let i = 0; i < 7; i++) {
+//       tableNumOfWeek.children[i].innerHTML = numOfWeek[i];
+//    };
+//    let tableRows = document.querySelectorAll('#table' + tables.length + ' tr:not(.tableRow0) td');
+
+//    function displayDates() {
+//       block.innerHTML = `${months[mon]} ${ye} year`;
+//       time = new Date(ye, mon - 1, 1);
+//       numOfWeek = time.getDay();
+
+//       for (let i = 0; i < tableRows.length; i++) {
+//          tableRows[i].innerHTML = '';
+         
+//       };
+//       for (let i = 0; i < (32 - new Date(ye, mon - 1, 32).getDate()); i++) {
+//          if (numOfWeek == 0) {
+//             tableRows[i + numOfWeek  + 6].innerHTML = i + 1;
+//             if ((i + numOfWeek ) % 7 == 0 || (i + numOfWeek  + 1) % 7 == 0) {
+//                tableRows[i + numOfWeek  + 6].className += " table-dates-weekends"
+//             } else {
+//                tableRows[i + numOfWeek  + 6].className += " table-dates-weekdays"
+//             }
+//          } else {
+//             tableRows[i + numOfWeek  + - 1].innerHTML = i + 1;
+//             if ((i + numOfWeek ) % 7 == 0 || (i + numOfWeek  + 1) % 7 == 0) {
+//                tableRows[i + numOfWeek  - 1].className += " table-dates-weekends"
+//             } else {
+//                tableRows[i + numOfWeek  - 1].className += " table-dates-weekdays"
+//             };
+//          };
+//       };
+//    };
+//    displayDates();
+//    tableHtml.addEventListener('mouseover', mouseoverFun);
+//    function mouseoverFun(event) {
+//       let target = event.target;
+//       if(target.tagName == 'TD' && target.innerHTML && !isNaN(Number(target.innerHTML))) {
+//          colorBG(target);
+//       } else {
+//          return;
+//       };
+//    };
+//    tableHtml.addEventListener('mouseout', mouseoutFun);
+//    function mouseoutFun(event) {
+//       let target = event.target;
+//       if(target.tagName == 'TD' && target.innerHTML && !isNaN(Number(target.innerHTML))) {
+//          notColorBG(target);
+//       } else {
+//          return;
+//       };
+//    };
+//    function colorBG(el) {
+//       el.classList.add('color-red');
+//    };
+//    function notColorBG(el) {
+//       el.classList.remove('color-red');
+//    };
+//    tableHtml.addEventListener('click', clickMouse);
+//    function clickMouse(el) {
+//       let target = el.target;
+//       if(target.tagName == 'TD' && target.innerHTML && !isNaN(Number(target.innerHTML))) {
+//          clickColorBG(target);
+//          tableHtml.removeEventListener('mouseover', mouseoverFun);
+//          tableHtml.removeEventListener('mouseout', mouseoutFun);
+//       } else {
+//          return;
+//       };
+//    };
+//    let selTd;
+//    function clickColorBG(el) {
+//       if(selTd) {
+//          selTd.classList.remove('color-red');
+//       };
+//       selTd = el;
+//       selTd.classList.add('color-red');
+//    };
+// };
+// createTable(03, 2022);
 
 
