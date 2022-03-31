@@ -581,3 +581,54 @@
 //    return arr.sort((a, b) => obj[b] - obj[a]);
 // }
 // myLanguages({"Java": 10, "Ruby": 80, "Python": 65})
+
+
+// var runLengthEncoding = function(str){
+//    let arr = [];
+//    let value = 1;
+//    for(let i = 0; i < str.length; i++) {
+//       if(str[i] !== str[i+1]) {
+//          arr.push([value, str[i]]);
+//          value = 1;
+//       }  else {
+//          value++
+//       }
+//    }
+//    return arr
+// }
+// runLengthEncoding("hello world!");
+
+// function recycle(array) {
+//    let obj = {'paper': [], 'glass': [], 'organic':[], 'plastic': []};
+//    for(let item of array) {
+//       obj[item.material].push(item.type);
+//       if(item.secondMaterial != undefined) {
+//          obj[item.secondMaterial].push(item.type);
+//       };
+//    };
+//    return [obj['paper'],obj['glass'],obj['organic'],obj['plastic']];
+// };
+
+// function unluckyDays(year){
+//    let dateNew = new Date(year,0).getTime();
+//    //console.log(dateNew);
+//    let date = 1000*60*60*24;
+//    //console.log(date);
+//    let counter = 0;
+//    for(let i = 0; i < 365; i++) {
+//       dateNew = dateNew + date;
+//       //console.log(dateNew);
+//       if(new Date(dateNew).getDay() === 5 && new Date(dateNew).getDate() === 13) {
+//          counter++;
+//       }
+      
+//    };
+//    return counter
+// }
+// unluckyDays(2019);
+// unluckyDays(2021);
+// unluckyDays(2020)
+
+
+
+
