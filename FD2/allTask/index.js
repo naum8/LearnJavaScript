@@ -1042,3 +1042,201 @@
 // createTable(03, 2022);
 
 
+// let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+// let result = arr.filter(elem => elem % 2 == 0).map(elem=> Math.pow(elem, 2)).reduce((acc, num) => acc + num, 0);
+// console.log(result);
+// let sum = 0;
+// function sumSquares() {
+//    for(let i = 0; i <= arr.length; i++) {
+//       if(arr[i] % 2 === 0) {
+//          //console.log(arr[i]);
+//          sum += arr[i]**2;
+//       }
+//    }
+//    console.log(sum);
+// }
+// sumSquares(arr);
+
+// const isPolindrome = (num) => {
+//    if(num == 0) {
+//       console.log(true);
+//    } else if (num < 0) {
+//       console.log(false);
+//    } else if (num > 0) {
+//       let numStr = String(num);
+//       //console.log(numStr)
+//       if(numStr === numStr.split('').reverse().join('')) {
+//          //console.log(numStr);
+//          console.log(true);
+//       } else {
+//          console.log(false);
+//       }
+//    }
+// };
+// isPolindrome(12); //false
+// isPolindrome(121); //true
+// isPolindrome(-121); //false
+// isPolindrome(0); //true
+// isPolindrome(15151); //true
+
+// const formItem = document.getElementById('form');
+// const userName = document.getElementById('name');
+// const userAge = document.getElementById('date');
+// const btn = document.getElementById('btn');
+// const blockResult = document.getElementById('blockResult');
+// const hiUser = document.getElementById('hiUser');
+// const textB = document.getElementById('textB');
+// const counter = document.getElementById('counter');
+
+// btn.disabled = true;
+// userName.addEventListener("input", dis);
+// userAge.addEventListener("input", dis);
+// function dis(){
+//    if (userName.value && userAge.value){
+//          btn.disabled = false;              
+//    } else {
+//       btn.disabled = true; 
+//    }
+// }
+// //localStorage потому что надо после закрытия вкладки показать тоже результат
+// btn.addEventListener("click", saveD);
+// function saveD(event){
+//    event.preventDefault();
+//    const user = {
+//          name: userName.value,
+//          birthday: userAge.value,
+//    }; 
+//    localStorage.setItem("userAll", JSON.stringify(user));  
+   
+// }
+// if (localStorage.getItem("userAll")){
+//    formItem.classList.add("display-none");
+//    showInfo();
+// }
+// function showInfo() {
+//    blockResult.classList.remove("display-none");
+//    let userJson = JSON.parse(window.localStorage.getItem("userAll"));
+//    hiUser.textContent = "HI, " + userJson.name;
+//    let birth = userJson.birthday;
+//    counterAll(birth);
+//    requestAnimationFrame(showInfo);
+// }
+// function counterAll(userBirthday) {
+//    let userBirth = new Date(userBirthday);
+//    let today = new Date;
+
+//    if((userBirth.getDate() === today.getDate()) && (userBirth.getMonth() === today.getMonth())) {
+//       textB.classList.add("display-none");
+//       counter.textContent = `Happy birthday!`;
+//       return;
+//    }
+//    if (userBirth.getMonth() == 1 && userBirth.getDate() == 29) {
+//       let year = today.getFullYear();
+//       if (userBirth.setFullYear(today.getFullYear()) < today) {
+//       year += 1;
+//       }
+//       while (new Date(year, 1, 29).getDate() !== 29) {
+//       year++;
+//       }
+//       userBirth.setFullYear(year);
+//   } else {
+//       userBirth.setFullYear(today.getFullYear());
+//       if (userBirth < today) {
+//           userBirth.setFullYear(today.getFullYear() + 1);
+//       }
+//   }
+//   let time = Math.round((userBirth - today) / 1000);
+//   let days = Math.floor(time / 60 / 60 / 24);
+//   let hours = Math.floor((time / 60 / 60) % 24);
+//   let minutes = Math.floor((time / 60) % 60);
+//   let seconds = Math.floor(time % 60);
+//   counter.textContent = days + ' days ' + hours + ' hours ' + minutes + ' minutes ' + seconds + ' seconds ';
+// }
+
+
+
+
+
+
+
+// const wrap = document.getElementById("wrapper");
+//         const userName = document.getElementById("name");
+//         const userDate = document.getElementById("date");
+//         const btn = document.getElementById("submit");
+//         const openWindow = document.getElementById("showWindow");
+//         const hello = document.getElementById("sayHello");
+//         const countdown = document.getElementById("countTime");
+//         const message = document.getElementById("msg");
+
+//         btn.disabled = true;
+
+//         userName.addEventListener("input", disabling);
+//         userDate.addEventListener("input", disabling);
+//         function disabling(){
+//             if (userName.value && userDate.value){
+//                 btn.disabled = false;              
+//             } else {
+//                btn.disabled = true; 
+//             }
+//         }
+        
+//         btn.addEventListener("click", saveData);
+
+
+//     //использовала localStorage т.к. данные нужно сохранить после закрытия/обновления страницы
+//         function saveData(event){
+//             event.preventDefault();
+//             const user = {
+//                 name: userName.value,
+//                 birthday: userDate.value,
+//             }; 
+//             localStorage.setItem("user1", JSON.stringify(user));  
+//         }
+
+//         if (localStorage.getItem("user1")){
+//             wrap.classList.add("toggle");
+//             showInfo();
+//         }
+                
+//         function showInfo(){
+//             openWindow.classList.remove("toggle");
+//             const parsedUser = JSON.parse(window.localStorage.getItem("user1"));
+//             hello.textContent = "Здравствуйте, " + parsedUser.name;
+//             const birth = parsedUser.birthday;
+//             countTime(birth);
+//             requestAnimationFrame(showInfo);
+//         }
+        
+//         function countTime(userBirthday){        
+//             const userBirth = new Date(userBirthday);
+//             const today = new Date;
+
+//             if ((userBirth.getDate() === today.getDate()) && (userBirth.getMonth() === today.getMonth())){
+//                 message.classList.add("toggle");
+//                 countdown.textContent = `С днем рождения!`;
+//                 return;
+//             }
+
+//             if (userBirth.getMonth() == 1 && userBirth.getDate() == 29) {
+//                 let year = today.getFullYear();
+//                 if (userBirth.setFullYear(today.getFullYear()) < today) {
+//                 year += 1;
+//                 }
+//                 while (new Date(year, 1, 29).getDate() !== 29) {
+//                 year++;
+//                 }
+//                 userBirth.setFullYear(year);
+//             } else {
+//                 userBirth.setFullYear(today.getFullYear());
+//                 if (userBirth < today) {
+//                     userBirth.setFullYear(today.getFullYear() + 1);
+//                 }
+//             }
+//             let time = Math.round((userBirth - today) / 1000);
+//             let days = Math.floor(time / 60 / 60 / 24);
+//             let hours = Math.floor((time / 60 / 60) % 24);
+//             let minutes = Math.floor((time / 60) % 60);
+//             let seconds = Math.floor(time % 60);
+//             countdown.textContent = `${days} дней, ${hours} часов, ${minutes} минут, ${seconds} секунд`;
+//         }
+

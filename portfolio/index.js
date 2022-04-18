@@ -20,6 +20,10 @@ navLinks.forEach(navLink => navLink.addEventListener("click", () => {
    bar3.classList.toggle("active");
 }));
 
+
+
+
+
 const headerBtnEn = document.querySelector('.header__btn-En');
 const headerBtnRu = document.querySelector('.header__btn-Ru');
 headerBtnEn.addEventListener("click", () => {

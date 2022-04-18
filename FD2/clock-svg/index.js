@@ -39,6 +39,7 @@ function doSVG() {
       number.setAttributeNS(null,"y", centerY);
       number.setAttributeNS(null,"fill", "white");
       number.setAttributeNS(null, "text-anchor", "middle");
+      number.setAttributeNS(null, "dominant-baseline", "middle"); 
       block.append(number);
 
       stepDeg = stepDeg + 30;
@@ -99,9 +100,12 @@ setInterval(() => {
    let mm = today.getMinutes();
    let ss = today.getSeconds();
 
-   arrowSec.setAttributeNS(null,"transform", `rotate(${ss*6}, ${width/2}, ${height/2})`);
-   arrowMin.setAttributeNS(null,"transform", `rotate(${(6*(mm + (1/60) * ss))},  ${width/2}, ${height/2})`);
-   arrowHour.setAttributeNS(null,"transform", `rotate(${(30*(hh + (1/60) * mm))}, ${width/2}, ${height/2})`);
+   let stepOneArrow = 6;
+   let stepOneArrowHour = 30;
+   let timeStepInterval = (1/60);
+   arrowSec.setAttributeNS(null,"transform", `rotate(${ss*stepOneArrow}, ${width/2}, ${height/2})`);
+   arrowMin.setAttributeNS(null,"transform", `rotate(${(stepOneArrow*(mm + timeStepInterval * ss))},  ${width/2}, ${height/2})`);
+   arrowHour.setAttributeNS(null,"transform", `rotate(${(stepOneArrowHour*(hh + timeStepInterval * mm))}, ${width/2}, ${height/2})`);
 
    if(ss < 10) {
       ss = `0${ss}`;
