@@ -629,4 +629,76 @@
 // unluckyDays(2021);
 // unluckyDays(2020)
 
+// function digitize(n) {
+//    let arr = [...n.toString()].map(Number).reverse();
+//    //console.log(n + ' = ' + arr);
+//    return arr;
+// }
+// digitize(123222);
+// digitize(0);
+// digitize(1222445)
 
+// var humanYearsCatYearsDogYears = function(humanYears) {
+//    if(humanYears == 1) {
+//       return [1, 15, 15]
+//    } else if(humanYears == 2) {
+//       return [2, 24, 24]
+//    } else {
+//       let arr = [];
+//       arr.push(humanYears);
+//       let twoNum = (humanYears - 2) * 4 + 15 + 9;
+//       arr.push(twoNum);
+//       let threeNum = (humanYears - 2) * 5 + 15 + 9;
+//       arr.push(threeNum);
+//       console.log(arr);
+//       return arr
+//    }
+// }
+// humanYearsCatYearsDogYears(1);
+// humanYearsCatYearsDogYears(2);
+// humanYearsCatYearsDogYears(10);
+
+// function countPositivesSumNegatives(input) {
+//    let newArr = [];
+//    let count = 0;
+//    let num = 0;
+//    if(input.length === 0 || input === null) {
+//       return [count, num]
+//    } else {
+//       for(let i = 0; i < input.length; i++) {
+//          if(input[i] > 0) {
+//             count++
+//          }
+//          if(input[i] < 0) {
+//             num += input[i];
+//          }
+//       }
+//       //console.log(count);
+//       //console.log(num);
+//       newArr.push(count);
+//       newArr.push(num);
+//       return newArr
+//    }
+   
+// }
+// countPositivesSumNegatives([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14, -15]) // [10, -65].
+
+// function stringClean(s){
+//    let arr = s.replace(/\d+/g, '');
+//    return arr
+// }
+
+// function squareOrSquareRoot(array) {
+//    let newArr = [];
+//    for(let i = 0; i < array.length; i++) {
+//       if(Number.isInteger(Math.sqrt(array[i]))) {
+//          //console.log(array[i]);
+//          newArr.push(Math.sqrt(array[i]))
+//       } else {
+//          newArr.push(array[i] * array[i])
+//       }
+//    }
+//    console.log(newArr);
+//    return newArr; 
+// }
+// squareOrSquareRoot([4,3,9,7,2,1]) // -> [2,9,3,49,4,1]

@@ -1,0 +1,27 @@
+body {
+	margin: 0;
+	padding: 0;
+   background: rgb(40, 44, 52);
+}
+.buttonStart {
+	position: absolute;
+	margin: 0 auto;
+	background-color: black;
+	color: white;
+	font-size: 18px;
+   border: 0;
+}
+.board {
+	fill: rgb(207, 207, 58);
+}
+.leftRacket {
+	stroke: green;
+	stroke-width: 20;
+}
+.rightRacket {
+	stroke: blue;
+	stroke-width: 20;
+}
+.ball {
+	fill: darkred;
+}

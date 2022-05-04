@@ -1153,90 +1153,99 @@
 //   counter.textContent = days + ' days ' + hours + ' hours ' + minutes + ' minutes ' + seconds + ' seconds ';
 // }
 
+//Drag’n’Drop
+// const body = document.body;
+// const list = document.createElement('ul');
+// list.classList.add('list');
+// const title = document.createElement('h1');
+// title.classList.add('title');
+// title.innerHTML = 'Drag’n’Drop';
+// body.append(title);
+// body.append(list);
 
+// let letters = ['D', 'C', 'A', 'B', 'E'];
+// for(let i = 0; i < letters.length; i++) {
+//    let item = document.createElement('li');
+//    item.classList.add('item');
+//    item.setAttribute('draggable', true);
+//    item.innerHTML = letters[i];
+//    list.append(item);
+// }
+// for(let item of list.children) {
+//    switch(item.innerHTML) {
+//       case 'A':
+//          item.dataset.id = 1;
+//          break;
+//       case 'B':
+//          item.dataset.id = 2;
+//          break;
+//       case 'C':
+//          item.dataset.id = 3;
+//          break;
+//       case 'D':
+//          item.dataset.id = 4;
+//          break;
+//       case 'E':
+//          item.dataset.id = 5;
+//          break;
+//    }
+// }
+// let trueLetters = ['1', '2', '3', '4', '5'];
 
+// let startPosX;
+// let startPosY;
 
+// list.addEventListener('dragstart', (event) => {
+//    event.target.classList.add("focus-st")
+//    let targetPos = event.target.getBoundingClientRect();
+//    startPosX = event.pageX - targetPos.left;
+//    startPosY = event.pageY - targetPos.top;
+// });
+// list.addEventListener("dragend", (event) => {
+//    event.target.classList.remove("focus-st");
+// });
+// list.addEventListener('dragover', (event) => {
+//    event.preventDefault();
+//    event.dataTransfer.dropEffect = 'move';
+//    const dragElement = list.querySelector(".focus-st");
+//    const currentElement = event.target;
+//    if(currentElement === list) {
+//       return
+//    }
+//    currentElement.classList.add("item-focus");
+//    const nextElement = (currentElement === dragElement.nextElementSibling) ? currentElement.nextElementSibling : currentElement;
+//    currentElement.before(dragElement);
+//    list.insertBefore(dragElement, nextElement);
+// });
+// list.addEventListener('dragleave', (event) => {
+//    let leaveElement = event.target;
+//    leaveElement.classList.remove("item-focus");
+// });
+// list.addEventListener('drop', (event) => {
+//    event.preventDefault();
+//    let currentElement = event.target;
+//    if (currentElement === list) {
+//       //checkFiveChildren();
+//       return;
+//    }
+//    currentElement.classList.remove("item-focus");		
+//    checkList.call(this);
+// });
 
+// function checkList() {
+//    let currentLetters = [];
+//    for(let item of list.children) {
+//       currentLetters.push(item.dataset.id);
+//    }
+//    function comparison(a, b) {
+//       let i = a.length;
+//       if (i != b.length) return false;
+//       while (i--) {
+//          if (a[i] !== b[i]) return false;
+//       }
+//       return true;
+//    }
+//    (comparison(currentLetters, trueLetters)) ? list.classList.add("border-true") : list.classList.remove("border-true");
+// }
 
-
-// const wrap = document.getElementById("wrapper");
-//         const userName = document.getElementById("name");
-//         const userDate = document.getElementById("date");
-//         const btn = document.getElementById("submit");
-//         const openWindow = document.getElementById("showWindow");
-//         const hello = document.getElementById("sayHello");
-//         const countdown = document.getElementById("countTime");
-//         const message = document.getElementById("msg");
-
-//         btn.disabled = true;
-
-//         userName.addEventListener("input", disabling);
-//         userDate.addEventListener("input", disabling);
-//         function disabling(){
-//             if (userName.value && userDate.value){
-//                 btn.disabled = false;              
-//             } else {
-//                btn.disabled = true; 
-//             }
-//         }
-        
-//         btn.addEventListener("click", saveData);
-
-
-//     //использовала localStorage т.к. данные нужно сохранить после закрытия/обновления страницы
-//         function saveData(event){
-//             event.preventDefault();
-//             const user = {
-//                 name: userName.value,
-//                 birthday: userDate.value,
-//             }; 
-//             localStorage.setItem("user1", JSON.stringify(user));  
-//         }
-
-//         if (localStorage.getItem("user1")){
-//             wrap.classList.add("toggle");
-//             showInfo();
-//         }
-                
-//         function showInfo(){
-//             openWindow.classList.remove("toggle");
-//             const parsedUser = JSON.parse(window.localStorage.getItem("user1"));
-//             hello.textContent = "Здравствуйте, " + parsedUser.name;
-//             const birth = parsedUser.birthday;
-//             countTime(birth);
-//             requestAnimationFrame(showInfo);
-//         }
-        
-//         function countTime(userBirthday){        
-//             const userBirth = new Date(userBirthday);
-//             const today = new Date;
-
-//             if ((userBirth.getDate() === today.getDate()) && (userBirth.getMonth() === today.getMonth())){
-//                 message.classList.add("toggle");
-//                 countdown.textContent = `С днем рождения!`;
-//                 return;
-//             }
-
-//             if (userBirth.getMonth() == 1 && userBirth.getDate() == 29) {
-//                 let year = today.getFullYear();
-//                 if (userBirth.setFullYear(today.getFullYear()) < today) {
-//                 year += 1;
-//                 }
-//                 while (new Date(year, 1, 29).getDate() !== 29) {
-//                 year++;
-//                 }
-//                 userBirth.setFullYear(year);
-//             } else {
-//                 userBirth.setFullYear(today.getFullYear());
-//                 if (userBirth < today) {
-//                     userBirth.setFullYear(today.getFullYear() + 1);
-//                 }
-//             }
-//             let time = Math.round((userBirth - today) / 1000);
-//             let days = Math.floor(time / 60 / 60 / 24);
-//             let hours = Math.floor((time / 60 / 60) % 24);
-//             let minutes = Math.floor((time / 60) % 60);
-//             let seconds = Math.floor(time % 60);
-//             countdown.textContent = `${days} дней, ${hours} часов, ${minutes} минут, ${seconds} секунд`;
-//         }
 
