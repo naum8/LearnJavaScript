@@ -702,3 +702,33 @@
 //    return newArr; 
 // }
 // squareOrSquareRoot([4,3,9,7,2,1]) // -> [2,9,3,49,4,1]
+
+// function shark(pontoonDistance, sharkDistance, youSpeed, sharkSpeed, dolphin){
+//    let myTime = pontoonDistance /  youSpeed;
+//    let sharkTime =  sharkDistance / sharkSpeed;
+//    console.log(myTime.toFixed(10));
+//    console.log(sharkTime.toFixed(10));
+//    if(myTime.toFixed(5) > sharkTime.toFixed(5)) {
+//       return answerTrue
+//    } else {
+//       return answerFalse
+//    }
+// }
+// shark(7, 55, 4, 16, true)// "Alive!";
+// shark(24, 0, 4, 8, true) //, "Shark Bait!";
+
+function betterThanAverage(classPoints, yourPoints) {
+   let sum = 0;
+   let count = classPoints.length;
+   console.log(count);
+   for(let i = 0; i < classPoints.length; i++) {
+      sum = sum + classPoints[i];
+   }
+   let resultClass = sum / count;
+   if(resultClass > yourPoints) {
+      return false
+   } else {
+      return true
+   }
+}
+betterThanAverage([100, 40, 34, 57, 29, 72, 57, 88], 75)

@@ -4,65 +4,69 @@
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link rel="shortcut icon" href="./assets/svg/favicon.ico">
+   <link rel="shortcut icon" href="./img/1.ico">
    <title>Planetarium</title>
    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <audio id="audio" src="./audio/audio.mp3"></audio>
   <div class="container">
-    <main class="main">
-      <header class="header">
-        <div class="header__logo">
-          <div class="header__logo-title"></div>
-          <div class="header__logo-subtitle"></div>
+    <header class="header">
+      <div class="header__logo-all">
+        <div class="header__logo"><a class="header__logo-a soundEffect" href="#">Planetarium</a></div>
+        <div class="header__subtitle"><a class="header__logo-a soundEffect" href="#">Welcome to the real world</a></div>
+      </div>
+      <nav class="nav">
+        <ul class="nav__ul">
+          <li class="nav__li"><a class="nav-a soundEffect" href="#">Login</a></li>
+          <li class="nav__li"><a class="nav-a soundEffect" href="#">Contacts</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main" id="main">
+      <canvas id="space"></canvas>
+      <div class="main__search">
+        <div class="main__search-title">Search</div>
+        <div class="input-section">
+          <label for="title" class="labelStyle">Title</label>
+          <div class="outSelectDiv"><input type="text" name="" id="title" class="inputStyle" placeholder="Enter Title"/></div>
         </div>
-        <div class="header__img"></div>
-        <nav class="nav"></nav>
-      </header>
+        <div class="input-section">
+          <label for="type" class="labelStyle labelStyle-type">Type</label>
+          <div class="outSelectDiv">
+            <select name="" id="type" class="selectStyle">
+              <option value="movie" id="optionMovie">Movie</option>
+              <option value="series" id="optionSeries">Series</option>
+            </select>
+          </div>
+        </div>
+        <div class="block__btn">
+          <button class="btn soundEffect" id="btn">Search</button>
+        </div>
+      </div>
+      <div class="main__result">
+        <div class="main__result-films" id="headerFilms">Movies:</div>
+        <div class="movieListUpper" id="movieListUpper"></div>
+        <div class="paginator" id="paginator"></div>
+      </div>
+      <div class="movieViewBackground" id="movieViewBackground">
+        <div class="movieView" id="movieView"></div>
+        <button class="movieViewBtn" id="movieViewBtn">Close</button>
+      </div>
     </main>
-    <footer class="footer"></footer>
+    <footer class="footer">
+      <div class="footer__left">
+          <span id="text1"></span>
+          <span id="text2"></span>
+      </div>
+      <div class="footer__rigth">
+        <div id="idClock" class="idClock"></div>
+      </div>
+    </footer>
   </div>
-
-
   <script src="script.js"></script>
+  <script src="./js/Canvas.js"></script>
 </body>
 </html>
 
-
-<!-- <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <title>Document</title>
-  </head>
-  <body>
-    <script defer src="script.js"></script>
-    <h1>Search</h1>
-    <div class="menu">
-      <div class="inputSection">
-        <label for="title" class="labelStyle">Title</label>
-        <div class="outSelectDiv"><input type="text" name="" id="title" class="inputStyle" /></div>
-      </div>
-      <div class="inputSection">
-        <label for="type" class="labelStyle">Type</label>
-        <div class="outSelectDiv">
-          <select name="" id="type" class="selectStyle">
-            <option value="movie" id="optionMovie">movie</option>
-            <option value="series" id="optionSeries">series</option>
-            <option value="episode" id="optionEpisode">episode</option>
-          </select>
-        </div>
-      </div>
-      <button class="button" id="button">Search</button>
-    </div>
-    <h2 id="headerFilms">Films:</h2>
-    <div class="movieListUpper" id="movieListUpper"></div>
-    <div class="paginator" id="paginator"></div>
-    <h2>Film info:</h2>
-    <div class="movieView" id="movieView">
-    </div>
-  </body>
-</html> -->
+<!-- <canvas id='canvi'></canvas> -->
