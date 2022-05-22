@@ -3,27 +3,47 @@
 <head>
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <link rel="shortcut icon" href="./img/1.ico">
    <title>Planetarium</title>
-   <link rel="stylesheet" href="style.css">
+   <link rel="stylesheet" href="./styles/style.css">
 </head>
 <body>
   <audio id="audio" src="./audio/audio.mp3"></audio>
-  <div class="container">
-    <header class="header">
+  <div id="spa" class="app container1">
+
+  </div>
+  <script defer src="./js/components.js"></script>
+  <script defer src="./js/pages.js"></script>
+  <script defer src="./js/index.js" type="module"></script>
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+    <!-- <header class="header">
       <div class="header__logo-all">
-        <div class="header__logo"><a class="header__logo-a soundEffect" href="#">Planetarium</a></div>
-        <div class="header__subtitle"><a class="header__logo-a soundEffect" href="#">Welcome to the real world</a></div>
+        <div class="header__logo"><a class="header__logo-a soundEffect" href="#main">Planetarium</a></div>
+        <div class="header__subtitle"><a class="header__logo-a soundEffect" href="#main">Welcome to the real world</a></div>
       </div>
-      <nav class="nav">
+      <nav class="nav" id="mainmenu">
         <ul class="nav__ul">
           <li class="nav__li"><a class="nav-a soundEffect" href="#">Login</a></li>
-          <li class="nav__li"><a class="nav-a soundEffect" href="#">Contacts</a></li>
+          <li class="nav__li"><a class="nav-a soundEffect" href="#main">Main</a></li>
+          <li class="nav__li"><a class="nav-a soundEffect" href="#contacts">Contacts</a></li>
         </ul>
-      </nav>
-    </header>
-    <main class="main" id="main">
+      </nav> 
+    </header> -->
+    <!-- <div class="main" id="main1">
       <canvas id="space"></canvas>
       <div class="main__search">
         <div class="main__search-title">Search</div>
@@ -52,9 +72,9 @@
       <div class="movieViewBackground" id="movieViewBackground">
         <div class="movieView" id="movieView"></div>
         <button class="movieViewBtn" id="movieViewBtn">Close</button>
-      </div>
-    </main>
-    <footer class="footer">
+      </div> 
+    </div> -->
+    <!-- <footer class="footer">
       <div class="footer__left">
           <span id="text1"></span>
           <span id="text2"></span>
@@ -62,11 +82,4 @@
       <div class="footer__rigth">
         <div id="idClock" class="idClock"></div>
       </div>
-    </footer>
-  </div>
-  <script src="script.js"></script>
-  <script src="./js/Canvas.js"></script>
-</body>
-</html>
-
-<!-- <canvas id='canvi'></canvas> -->
+    </footer> -->

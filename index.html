@@ -8,30 +8,15 @@
     <title>Document</title>
   </head>
   <body>
-    <script defer src="index.js"></script>
-    <h1>Search</h1>
-    <div class="menu">
-      <div class="inputSection">
-        <label for="title" class="labelStyle">Title</label>
-        <div class="outSelectDiv"><input type="text" name="" id="title" class="inputStyle" /></div>
-      </div>
-      <div class="inputSection">
-        <label for="type" class="labelStyle">Type</label>
-        <div class="outSelectDiv">
-          <select name="" id="type" class="selectStyle">
-            <option value="movie" id="optionMovie">movie</option>
-            <option value="series" id="optionSeries">series</option>
-            <option value="episode" id="optionEpisode">episode</option>
-          </select>
-        </div>
-      </div>
-      <button class="button" id="button">Search</button>
+    <div class="login">
+      <div class="login__title">Register</div>
+      <div class="login__subtitle">Please fill in this form to create an account</div>
+      <label class="label-email" for="email">Email</label> 
+      <input class="input-email" type="text" placeholder="Enter Email" name="email" id="email" required>
+      <label class="label-password">Password</label> 
+      <input class="input-password" type="password" placeholder="password" name="psw" id="psw" required>
+      <button class="login__btn">Register</button>
     </div>
-    <h2 id="headerFilms">Films:</h2>
-    <div class="movieListUpper" id="movieListUpper"></div>
-    <div class="paginator" id="paginator"></div>
-    <h2>Film info:</h2>
-    <div class="movieView" id="movieView">
-    </div>
+
   </body>
 </html>
