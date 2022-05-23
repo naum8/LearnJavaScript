@@ -1,8 +1,4 @@
- // Import the functions you need from the SDKs you need
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-app.js";
-import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-analytics.js";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-auth.js";
-import { getDatabase, set, ref, update } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-database.js";
+// Web app's Firebase configuration.
 const firebaseConfig = {
    apiKey: "AIzaSyBLLIecNGd-FqgkE2SZ9L3HcvZ-ZdjzA3Q",
    authDomain: "planetarium-2d7ef.firebaseapp.com",
@@ -22,6 +18,7 @@ const routes = {
    main: HomePage,
    contacts: Contacts,
    login: Login,
+   todo: Todo,
    default: HomePage,
    error: ErrorPage,
 };
@@ -54,6 +51,9 @@ const mySPA = (function() {
          if (routeName === "main") this.mainSearch();
          if (routeName === "contacts") this.showCanvasContacts();
          if (routeName === "login") this.showCanvasLogin();
+         if (routeName === "login") this.loginPages();
+         if (routeName === "todo") this.showCanvasLogin();
+         if (routeName === "todo") this.showTodo();
          this.updateButtons(routesObj[routeName].id);
       }
       // method main
@@ -279,7 +279,7 @@ const mySPA = (function() {
             function createPaginator(params) {
             arrowButtonLeft = document.createElement(`button`);
             arrowButtonLeft.className = `paginatorUnitArrow`;
-            arrowButtonLeft.innerHTML = `&larr;`;
+            arrowButtonLeft.innerHTML = `&laquo;`;
             document.querySelector(`#paginator`).appendChild (arrowButtonLeft);
             if (allPageList <= 100) {
                for (let i = 0; i < Math.ceil(allPageList / 10); i++) {
@@ -302,7 +302,7 @@ const mySPA = (function() {
             }
             arrowButtonRight = document.createElement(`button`);
             arrowButtonRight.className = `paginatorUnitArrow`;
-            arrowButtonRight.innerHTML = `&rarr;`;
+            arrowButtonRight.innerHTML = `&raquo;`;
             document.querySelector(`#paginator`).appendChild(arrowButtonRight);
             }
 
@@ -635,7 +635,7 @@ const mySPA = (function() {
          };
          run();
       }
-      //method login
+      //method login canvas
       this.showCanvasLogin = function() {
          var cc = document.createElement("canvas");
          cc.id = "my-canvasLogin";
@@ -688,7 +688,456 @@ const mySPA = (function() {
          };
          run();
       }
-      
+      //method login auth
+      this.loginPages = function() {
+         
+// Initialize Firebase.
+firebase.initializeApp(firebaseConfig);
+
+const database = firebase.database();
+const auth = firebase.auth();
+
+// Sign up to create a new account.
+document.querySelector("#sign-up-button").addEventListener("click", () => {
+ let email = document.getElementById("email").value;
+ let password = document.getElementById("password").value;
+ let displayName = document.getElementById("username").value;
+
+ if (displayName === "") {
+       alert("Enter your name!");
+   } else {
+       const promise = auth.createUserWithEmailAndPassword(email, password);
+   promise
+       .then((userCredential) => {
+           // Signed up 
+           var user = userCredential.user;
+           window.location = '#todo';
+           //alert("Signed Up: " + email);
+           user.updateProfile({
+               displayName: displayName
+           })
+       })
+       .catch((error) => {
+           var errorCode = error.code;
+           var errorMessage = error.message;
+           alert(errorMessage);
+       });
+   }
+});
+
+// Sign in with existing account.
+document.querySelector("#sign-in-button").addEventListener("click", () => {
+ let email = document.getElementById("email").value;
+ let password = document.getElementById("password").value;
+ let displayName = document.getElementById("username").value;
+
+ const promise = auth.signInWithEmailAndPassword(email, password);
+ promise
+   .then((userCredential) => {
+     // Signed in
+     var user = userCredential.user;
+     //alert("Signed In: " + email);
+     window.location = '#todo';
+   })
+   .catch((error) => {
+     var errorCode = error.code;
+     var errorMessage = error.message;
+     alert(errorMessage);
+   });
+});
+
+// Reset input.
+document.querySelector("#cancel-button").addEventListener("click", () => {
+ document.getElementById("email").value = "";
+ document.getElementById("password").value = "";
+ document.getElementById("username").value = "";
+});
+
+      }
+      //method todo
+      this.showTodo = function() {
+        // Initialize Firebase.
+firebase.initializeApp(firebaseConfig);
+//firebase.analytics();
+
+const database = firebase.database();
+const auth = firebase.auth();
+
+auth.onAuthStateChanged(function (user) {
+let email, name;
+if (user) {
+  // User is signed in.
+  email = user.email;
+  name = user.displayName;
+  //alert("Active user: " + name);
+  document.getElementById("welcome").innerText = "Welcome " + name + "!";
+} else {
+  // Redirect to login-page.
+  email = null;
+  //alert("No active user");
+  window.location.replace("#login");
+}
+});
+
+// Logout user from database.
+document.querySelector("#logout-button").addEventListener("click", () => {
+auth.signOut();
+//alert("Signed out");
+});
+
+// Setting EventListener for "enter" key.
+document.querySelector(".input").addEventListener("keydown", (event) => {
+if (event.keyCode === 13 || event.code === "Enter") {
+  event.preventDefault();
+  document.querySelector("#add-button").click();
+}
+});
+
+// Read input when clicking on the "Add new task" button.
+document.querySelector("#add-button").addEventListener("click", () => {
+const inputValue = document.getElementById("task-title").value;
+const dateValue = document.getElementById("task-date").value;
+//const currentDate = new Date();
+//const givenDate = new Date(dateValue);
+if (inputValue === "" && dateValue === "") {
+  alert("You must write when you want to watch and choose a deadline date!");
+} else if (inputValue === "") {
+  alert("You must write what you want to watch a movie or series!");
+} else if (dateValue === "") {
+  alert("You must choose deadline date!");
+  //} else if (givenDate < currentDate) {
+  //    alert("The date must be bigger or equal to current date!");
+} else {
+  addItemsToDatabase(inputValue, dateValue);
+}
+});
+
+// Send task-items to Firebase.
+const addItemsToDatabase = (inputValue, dateValue) => {
+let key = database.ref().child("my_todos/").push().key;
+let description = "Нour choice of movie";
+let task = {
+  title: inputValue,
+  date: dateValue,
+  description: description,
+  timestamp: Date.now(),
+  done: false,
+  key: key
+};
+
+let updates = {};
+updates["my_todos/" + key] = task;
+database.ref().update(updates);
+
+addItemsToListView(task, key);
+};
+
+// Add task-items to lists.
+const addItemsToListView = (task, key) => {
+const listItem = document.createElement("li");
+const taskTitle = document.createElement("p");
+const taskDate = document.createElement("p");
+const timestamp = document.createElement("p");
+const taskInfo = document.createElement("p");
+
+listItem.id = task.key;
+
+taskTitle.innerHTML = task.title;
+taskTitle.setAttribute("maxlength", "10");
+taskTitle.setAttribute('contenteditable', false);
+
+taskDate.innerHTML = task.date;
+taskDate.className = "date";
+taskDate.setAttribute('contenteditable', false);
+
+timestamp.innerHTML = task.timestamp;
+timestamp.className = "timestamp";
+timestamp.style.display = "none";
+
+taskInfo.innerHTML = task.description;
+taskInfo.className = "task-info";
+taskInfo.style.display = "none";
+
+done = task.done;
+
+listItem.innerHTML +=
+  taskTitle.outerHTML +
+  taskDate.outerHTML +
+  taskInfo.outerHTML +
+  timestamp.outerHTML;
+
+// Add info-button at the end of task.
+const buttonInfo = document.createElement("button");
+const info = document.createElement("i");
+info.innerHTML = 'INFO';
+buttonInfo.setAttribute("id", "task-info-button");
+buttonInfo.setAttribute("onclick", "checkInfo(this.parentElement, this)");
+buttonInfo.appendChild(info);
+listItem.appendChild(buttonInfo);
+
+// Add checkbox at the end of task.
+const buttonCheckbox = document.createElement("button");
+const checkbox = document.createElement("i");
+checkbox.innerHTML = 'DONE';
+buttonCheckbox.setAttribute("id", "task-done-button");
+buttonCheckbox.setAttribute(
+  "onclick",
+  "taskChecked(this.parentElement, this)"
+);
+buttonCheckbox.appendChild(checkbox);
+listItem.appendChild(buttonCheckbox);
+
+// Add edit-button at the end of task.
+const buttonEdit = document.createElement("button");
+const editIcon = document.createElement("i");
+editIcon.innerHTML = 'EDIT';
+buttonEdit.setAttribute("id", "task-edit-button");
+buttonEdit.setAttribute("onclick", "taskEdit(this.parentElement, this)");
+buttonEdit.appendChild(editIcon);
+listItem.appendChild(buttonEdit);
+
+// Add delete-button at the end of task.
+const buttonDelete = document.createElement("button");
+const deleteIcon = document.createElement("i");
+deleteIcon.innerHTML = 'DELETE';
+buttonDelete.setAttribute("onclick", "deleteTask(this.parentElement, this)");
+buttonDelete.setAttribute("id", "task-delete-button");
+buttonDelete.appendChild(deleteIcon);
+listItem.appendChild(buttonDelete);
+
+// Check if task is done and set checked-class if it's true.
+if (done === true) {
+  listItem.setAttribute("class", "checked");
+  buttonCheckbox.firstChild.setAttribute("class", "fas fa-check-double");
+  buttonCheckbox.setAttribute("class", "checked");
+  buttonEdit.setAttribute("class", "disabled");
+  buttonEdit.setAttribute("disabled", "true");
+  buttonInfo.setAttribute("class", "disabled");
+  buttonInfo.setAttribute("disabled", "true");
+}
+
+document.getElementById("task-list").appendChild(listItem);
+document.getElementById("task-title").value = "";
+document.getElementById("task-date").value = "";
+};
+
+//Toggle sorting tasks due deadline-date and due created-date.
+let sort = false;
+document.querySelector("#sort-button").addEventListener("click", () => {
+let list, i, switching, listItem, dateValue, shouldSwitch, timestamp;
+if (!sort) {
+  list = document.getElementById("task-list");
+  switching = true;
+  while (switching) {
+    switching = false;
+    listItem = list.getElementsByTagName("LI");
+    for (i = 0; i < listItem.length - 1; i++) {
+      shouldSwitch = false;
+      dateValue = list.getElementsByClassName("date");
+      if (dateValue[i].innerHTML > dateValue[i + 1].innerHTML) {
+        shouldSwitch = true;
+        break;
+      }
+    }
+    if (shouldSwitch) {
+      listItem[i].parentNode.insertBefore(listItem[i + 1], listItem[i]);
+      switching = true;
+    }
+  }
+  sort = true;
+} else if (sort) {
+  list = document.getElementById("task-list");
+  switching = true;
+  while (switching) {
+    switching = false;
+    listItem = list.getElementsByTagName("LI");
+    for (i = 0; i < listItem.length - 1; i++) {
+      shouldSwitch = false;
+      timestamp = list.getElementsByClassName("timestamp");
+      if (timestamp[i].innerHTML > timestamp[i + 1].innerHTML) {
+        shouldSwitch = true;
+        break;
+      }
+    }
+    if (shouldSwitch) {
+      listItem[i].parentNode.insertBefore(listItem[i + 1], listItem[i]);
+      switching = true;
+    }
+  }
+  sort = false;
+}
+});
+
+// Delete all tasks from list-view and from Firebase database.
+document.querySelector("#delete-all-button").addEventListener("click", () => {
+database.ref("my_todos/").remove();
+
+let list = document.getElementById("task-list");
+let listItem = list.getElementsByTagName("LI");
+for (i = 0; i < listItem.length; i++) {
+  listItem[i].style.display = "none";
+}
+});
+
+// Task description (and edit) when clicked on info-button.
+const checkInfo = (listItem, buttonInfo) => {
+buttonInfo.classList.toggle("checked");
+taskInfo = listItem.childNodes[2];
+buttonCheck = listItem.childNodes[5];
+buttonEdit = listItem.childNodes[6];
+
+if (buttonInfo.className === "checked") {
+  buttonEdit.setAttribute("class", "disabled");
+  buttonEdit.setAttribute("disabled", "true");
+  buttonCheck.setAttribute("class", "disabled");
+  buttonCheck.setAttribute("disabled", "true");
+  taskInfo.style.display = "block";
+  taskInfo.setAttribute("contenteditable", true);
+  taskInfo.setAttribute("id", "info-editing");
+  taskInfo.addEventListener("keydown", (event) => {
+    if (event.keyCode === 13 || event.code === "Enter") {
+      event.preventDefault();
+      taskInfo.setAttribute("contenteditable", false);
+
+      updateTask(listItem);
+    }
+  });
+} else if (listItem.className !== "checked") {
+  buttonEdit.removeAttribute("class", "disabled");
+  buttonEdit.removeAttribute("disabled");
+  buttonCheck.removeAttribute("class", "disabled");
+  buttonCheck.removeAttribute("disabled");
+  taskInfo.style.display = "none";
+  taskInfo.setAttribute("contenteditable", false);
+  taskInfo.setAttribute("id", "no-editing");
+  updateTask(listItem);
+}
+};
+
+// Add "line-through" on task and set task to done when checkbox is checked.
+const taskChecked = (listItem, buttonCheckbox) => {
+listItem.classList.toggle("checked");
+buttonInfo = listItem.childNodes[4];
+buttonEdit = listItem.childNodes[6];
+
+if (listItem.className === "checked") {
+  done = true;
+  buttonCheckbox.firstChild.setAttribute("class", "fas fa-check-double");
+  buttonCheckbox.setAttribute("class", "checked");
+
+  buttonEdit.setAttribute("class", "disabled");
+  buttonEdit.setAttribute("disabled", "true");
+
+  buttonInfo.setAttribute("class", "disabled");
+  buttonInfo.setAttribute("disabled", "true");
+} else if (listItem.className !== "checked") {
+  done = false;
+  buttonCheckbox.firstChild.setAttribute("class", "fas fa-check");
+  buttonCheckbox.removeAttribute("class", "checked");
+
+  buttonEdit.removeAttribute("class", "disabled");
+  buttonEdit.removeAttribute("disabled");
+
+  buttonInfo.removeAttribute("class", "disabled");
+  buttonInfo.removeAttribute("disabled");
+}
+
+updateTask(listItem);
+};
+
+// Edit task when edit-button clicked.
+const taskEdit = (listItem, buttonEdit) => {
+buttonEdit.setAttribute("id", "task-edit-button-editing");
+buttonEdit.setAttribute("onclick", "finishEdit(this.parentElement, this)");
+
+taskTitle = listItem.childNodes[0];
+taskTitle.setAttribute("contenteditable", true);
+taskTitle.setAttribute("id", "title-editing");
+taskTitle.focus();
+
+taskDate = listItem.childNodes[1];
+taskDate.setAttribute("contenteditable", true);
+taskDate.setAttribute("id", "date-editing");
+
+buttonInfo = listItem.childNodes[4];
+buttonInfo.setAttribute("class", "disabled");
+buttonInfo.setAttribute("disabled", "true");
+
+buttonCheck = listItem.childNodes[5];
+buttonCheck.setAttribute("class", "disabled");
+buttonCheck.setAttribute("disabled", "true");
+
+listItem.addEventListener("keydown", (event) => {
+  if (event.keyCode === 13 || event.code === "Enter") {
+    event.preventDefault();
+    finishEdit(listItem, buttonEdit);
+  }
+});
+};
+
+// Finish editing task when edit-button clicked again, send edited data to Firebase.
+const finishEdit = (listItem, buttonEdit) => {
+buttonEdit.setAttribute("id", "task-edit-button");
+buttonEdit.setAttribute("onclick", "taskEdit(this.parentElement, this)");
+
+taskTitle = listItem.childNodes[0];
+taskTitle.setAttribute("contenteditable", false);
+taskTitle.setAttribute("id", "no-editing");
+
+taskDate = listItem.childNodes[1];
+taskDate.setAttribute("contenteditable", false);
+taskDate.setAttribute("id", "no-editing");
+
+buttonInfo = listItem.childNodes[4];
+buttonInfo.removeAttribute("class", "disabled");
+buttonInfo.removeAttribute("disabled", "true");
+
+buttonCheck = listItem.childNodes[5];
+buttonCheck.removeAttribute("class", "disabled");
+buttonCheck.removeAttribute("disabled");
+
+updateTask(listItem);
+};
+
+// Delete one task-item from the list when clicked on a "trash can" icon.
+const deleteTask = (listItem, buttonDelete) => {
+listItem.style.display = "none";
+let key = listItem.id;
+database.ref("my_todos/").child(key).remove();
+};
+
+// Update task and send updated data to Firebase.
+const updateTask = (listItem) => {
+let key = listItem.id;
+
+let updatedTask = {
+  title: listItem.childNodes[0].innerHTML,
+  date: listItem.childNodes[1].innerHTML,
+  description: listItem.childNodes[2].innerHTML,
+  timestamp: listItem.childNodes[3].innerHTML,
+  done: done,
+  key: key
+};
+
+let updates = {};
+updates["my_todos/" + key] = updatedTask;
+database.ref().update(updates);
+};
+
+// Fetch all data with Firebase database.
+function fetchAllData() {
+database.ref("my_todos/").once("value", function (snapshot) {
+  snapshot.forEach(function (ChildSnapshot) {
+    let task = ChildSnapshot.val();
+    let key = ChildSnapshot.val().key;
+    addItemsToListView(task, key);
+  });
+});
+}
+
+window.onload = fetchAllData();
+      }
+
       this.updateButtons = function(currentPage) {
          const menuLinks = menu.querySelectorAll(".nav-a");
 
@@ -704,6 +1153,8 @@ const mySPA = (function() {
             });
          });
          
+
+
       }
    };
    /* -------- end view --------- */
@@ -774,55 +1225,20 @@ document.addEventListener("DOMContentLoaded", mySPA.init({
    components: components
 }));
 
-// const app = initializeApp(firebaseConfig);
-// const auth = getAuth();
-// const database = getDatabase(app);
-// const analytics = getAnalytics(app);
 
 
-// submitData.addEventListener('click', (e) => {
-
-//    var userName = document.getElementById('userName').value;
-//    var email = document.getElementById('email').value;
-//    var password = document.getElementById('psw').value;
 
 
-// signInWithEmailAndPassword(auth, email, password, userName)
-//    .then((userCredential) => {
-//     // Signed in 
-//       const user = userCredential.user;
-//       console.log(user);
-//       console.log(user.email);
-//       console.log(user.userName);
-//     // ...
-//    var lgDate = new Date();
-//       update(ref(database, 'users/' + user.uid), {
-//          last_login: lgDate,
-//          // email: email,
-//          // password: password,
-//       })
-//       .then(() => {
-//          // Data saved successfully!
-//          alert('User logger in successfully');
-//       })
-//       .catch((error) => {
-//          // The write failed...
-//          alert('error');
-//       });
-//    })
-//       .catch((error) => {
-//          const errorCode = error.code;
-//          const errorMessage = error.message;
-//          alert(errorMessage);
-//       });
 
 
-//       signOut(auth).then(() => {
-//          //
-//       }).catch((error) => {
-//          //
-//       });
-// });
+
+
+
+
+
+
+
+
 
 
 
@@ -901,8 +1317,8 @@ function digitalClock() {
    if (hours < 10) hours = "0" + hours;
    if (minutes < 10) minutes = "0" + minutes;
    if (seconds < 10) seconds = "0" + seconds;
-   document.getElementById("idClock").innerHTML = hours + ":" + minutes + ":" + seconds;
-   setTimeout("digitalClock()", 1000);
+   document.getElementById("idClock").innerHTML = hours + ":" + minutes;
+   setTimeout("digitalClock()", 500);
 }
 digitalClock();
 

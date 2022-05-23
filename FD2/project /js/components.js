@@ -9,6 +9,7 @@ const Header = {
        <nav class="nav" id="mainmenu">
          <ul class="nav__ul">
            <li class="nav__li"><a class="nav-a soundEffect" href="#login">login</a></li>
+           <li class="nav__li"><a class="nav-a soundEffect" href="#todo">movie list</a></li>
            <li class="nav__li"><a class="nav-a soundEffect" href="#main">main</a></li>
            <li class="nav__li"><a class="nav-a soundEffect" href="#contacts">contacts</a></li>
          </ul>

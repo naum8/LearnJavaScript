@@ -35,23 +35,55 @@ const HomePage = {
      </div>
      `;
    }
- };
- const Login = {
+};
+const Login = {
   id: "login",
   title: "Login",
   render: (className = "container", ...rest) => {
     return `
       <section class="${className}">
-        <div class="login">
-        <div class="login__title">Register</div>
-        <div class="login__subtitle">Please fill in this form to create an account</div>
-        <label class="label-name">Name</label> 
-        <input class="input-name" type="text" placeholder="Enter name" name="name" id="userName" required>
-        <label class="label-email" for="email">Email</label> 
-        <input class="input-email" type="text" placeholder="Enter Email" name="email" id="email" required>
-        <label class="label-password">Password</label> 
-        <input class="input-password" type="password" placeholder="password" name="psw" id="psw" required>
-        <button class="login__btn soundEffect" id='submitData' name='submitData' type='button'>Register</button>
+        <div class="container-login">
+        <h2 class="welcome">Welcome!</h2>
+        <h5 class="login-sib">Sign in to your account or sign up to create a new account.</h5>
+        <ul class="login-group">
+          <label for="uname" class="label"><b>Email</b></label>
+          <input type="email" class="input-login" id="email" name="uname" placeholder="Enter Email" maxlength="50" required />
+          <label for="psw" class="label"><b>Password</b></label>
+          <input type="password" class="input-login" id="password" name="psw" placeholder="Enter Password" maxlength="50" required />
+          <label for="username" class="label"><b>Name</b></label>
+          <input type="text" class="input-login" id="username" name="username" placeholder="Enter Name To Sign Up" maxlength="50" />
+        </ul>
+        <div>
+          <ul class="button-auth-group">
+            <button type="submit" class="button-auth" id="sign-up-button" title="Sign Up">Sign Up</button>
+            <button type="submit" class="button-auth" id="sign-in-button" title="Sign In">Sign In</button>
+            <button type="submit" class="button-auth" id="cancel-button" title="Cancel">Cancel</button>
+          </ul>
+        </div>
+        </div>
+      </section>
+    `;
+  }
+};
+const Todo = {
+  id: "todo",
+  title: "Movie list",
+  render: (className = "container", ...rest) => {
+    return `
+      <section class="${className}">
+        <button type="submit" class="button-auth1" id="logout-button" title="Logout">Logout</button>
+        <p class="welcome" id="welcome"></p>
+        <div class="container-tasks">
+          <input type="text" class="input" id="task-title" placeholder="What movies would you like to watch next?" maxlength="100" />
+          <input type="date" class="input" id="task-date" />
+          <div>
+            <ul class="button-group">
+              <button type="submit" class="button" id="add-button" title="Add new task">ADD TASK</button>
+              <button type="submit" class="button" id="sort-button" title="Sort tasks">SORT TASKS</button>
+              <button type="submit" class="button" id="delete-all-button" title="Delete all tasks">DELETE ALL</button>
+            </ul>
+          </div>
+          <ul class="list" id="task-list"></ul>
         </div>
       </section>
     `;
@@ -74,7 +106,6 @@ const HomePage = {
    render: (className = "container", ...rest) => {
      return `
        <section class="${className}">
-       <canvas id='canvi'></canvas>
          <h1>Ошибка 404</h1>
          <p>Страница не найдена, попробуйте вернуться на <a href="#main">главную</a>.</p>
        </section>
