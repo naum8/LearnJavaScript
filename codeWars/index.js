@@ -717,18 +717,100 @@
 // shark(7, 55, 4, 16, true)// "Alive!";
 // shark(24, 0, 4, 8, true) //, "Shark Bait!";
 
-function betterThanAverage(classPoints, yourPoints) {
-   let sum = 0;
-   let count = classPoints.length;
-   console.log(count);
-   for(let i = 0; i < classPoints.length; i++) {
-      sum = sum + classPoints[i];
-   }
-   let resultClass = sum / count;
-   if(resultClass > yourPoints) {
-      return false
-   } else {
-      return true
-   }
-}
-betterThanAverage([100, 40, 34, 57, 29, 72, 57, 88], 75)
+// function betterThanAverage(classPoints, yourPoints) {
+//    let sum = 0;
+//    let count = classPoints.length;
+//    console.log(count);
+//    for(let i = 0; i < classPoints.length; i++) {
+//       sum = sum + classPoints[i];
+//    }
+//    let resultClass = sum / count;
+//    if(resultClass > yourPoints) {
+//       return false
+//    } else {
+//       return true
+//    }
+// }
+// betterThanAverage([100, 40, 34, 57, 29, 72, 57, 88], 75)
+
+// function howMuchILoveYou(nbPetals) {
+//    if(nbPetals == 7) {
+//       return "I love you";
+//    } else if(nbPetals == 6) {
+//       return "not at all";
+//    } else if(nbPetals == 5) {
+//       return "a little";
+//    } else if(nbPetals == 4) {
+//       return "madly";
+//    } else if(nbPetals == 3) {
+//       return "a lot";
+//    } else if(nbPetals == 2) {
+//       return "not at all";
+//    } else if(nbPetals == 1) {
+//       return "passionately";
+//    } 
+// }
+// howMuchILoveYou(7);
+
+// function sumOfDifferences(arr) {
+//       console.log(arr.sort((a,b) => b - a));
+//       arr.sort((a,b) => b - a);
+      
+//       let sum = 0;
+//       for (let i = 0; i < arr.length - 1; ++i) {
+//          sum += arr[i] - arr[i + 1];
+//       }
+      
+//       console.log(sum);
+
+// }
+// //sumOfDifferences([10, 2, 1]);
+// sumOfDifferences([1, 2, 10]);
+
+// function mergeArrays(arr1, arr2) {
+//    let newArr = arr1.concat(arr2);
+//    let result = [...new Set(newArr)];
+
+//    //console.log(result);
+//    result.sort(function(a, b) {
+
+//       return a - b;
+//    });
+//    console.log(result);
+//    return result
+// }
+// mergeArrays([1,3,5,7,9,11,12], [1,2,3,4,5,10,12]);
+// mergeArrays([1,3,5,7,9], [10,8,6,4,2,2]);
+
+// function add(num1, num2) {
+//    let num1New = '' + num1;
+//    let num2New = '' + num2;
+//    let result = '';
+//    //console.log(typeof num1New);
+//    while(num1New.length < num2New.length ) {
+//       num1New = '0' + num1New;
+//       //console.log(num1New);
+//    }
+//    while(num1New.length > num2New.length ) {
+//       num2New = '0' + num2New;
+//       //console.log(num2New);
+//    }
+//    for(let i = 0; i < num1New.length; i++) {
+//       result = result + num1New[i] + num2New[i];
+//    }
+//    console.log(result);
+//    return +result;
+// }
+// add(16, 18); //214
+// add(26, 39); //515
+
+// var a=""+num1;
+// var b=""+num2; 
+// while (a.length<b.length)
+//   a='0'+a;
+// while (a.length>b.length)
+//   b='0'+b;
+// var ans="";
+// for (var i=0; i<a.length; ++i)
+//   ans+=(+a[i]+ +b[i]);
+// return +ans;
