@@ -1,11 +1,22 @@
-// Web app's Firebase configuration.
-const firebaseConfig = {
-   apiKey: "AIzaSyBLLIecNGd-FqgkE2SZ9L3HcvZ-ZdjzA3Q",
-   authDomain: "planetarium-2d7ef.firebaseapp.com",
-   projectId: "planetarium-2d7ef",
-   storageBucket: "planetarium-2d7ef.appspot.com",
-   messagingSenderId: "97830966086",
-   appId: "1:97830966086:web:f0e92e819a1d3f803a0b47",
-   measurementId: "G-856QHNZPGK"
-};
-
+let message = 'fdffffq'
+console.log(message[message.length - 1]);
+console.log(4 * 'five');
+console.log([1,2,3,4,5].length);
+console.log('Hey there!');
+let rs = 'true'
+console.log(typeof rs);
+console.log(Math.abs(Math.floor(-46.867)));
+let i = 0; let c = 0; const str = 'Rolling Scopes School'; while (i < str.length) { if (str[i] === 'o') { c++; } i++; } console.log(c);
+console.log((8 / 2 + 5 - -3 / 2));
+console.log((0.32 * 0.22 * 0.75));
+console.log();
+console.log();
+console.log();
+console.log();
+console.log();
+console.log();
+console.log();
+console.log();
+console.log();
+console.log();
+console.log();
