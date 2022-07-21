@@ -814,3 +814,53 @@
 // for (var i=0; i<a.length; ++i)
 //   ans+=(+a[i]+ +b[i]);
 // return +ans;
+
+// const diary1 = {
+//    'algebra': 6,
+//    'history': 7,
+//    'physics': 8,
+//    'geography': 9,
+//    'chemistry': 10
+// };
+// const diary2 =   {
+//    'algebra': 8,
+//    'history': 7,
+//    'physics': 8,
+//    'geography': 9,
+//    'chemistry': 10
+// };
+// const diary3 = {
+//    'algebra': 6,
+//    'history': 5,
+//    'physics': 5,
+//    'geography': 9,
+//    'chemistry': 10
+// };
+// function whoseBicycle(diary1, diary2, diary3) {
+//    let firstSonAge = 0;
+//    let secondSonAge = 0;
+//    let thirdSonAge = 0;
+
+//    for (let sum1 of Object.values(diary1)) {
+//       firstSonAge += sum1;
+//    }
+//    for (let sum2 of Object.values(diary2)) {
+//       secondSonAge += sum2;
+//    }
+//    for (let sum3 of Object.values(diary3)) {
+//       thirdSonAge += sum3;
+//    }
+//    //console.log(firstSonAge);
+//    if(firstSonAge > secondSonAge && firstSonAge > thirdSonAge) {
+//       return 'I need to buy a bicycle for my first son.'
+//    } else if (firstSonAge < secondSonAge && secondSonAge > thirdSonAge) {
+//       return 'I need to buy a bicycle for my second son.'
+//    } else if (firstSonAge < thirdSonAge && secondSonAge < thirdSonAge) {
+//       return 'I need to buy a bicycle for my third son.'
+//    } else if (firstSonAge == thirdSonAge || secondSonAge == thirdSonAge) {
+//       return 'I need to buy a bicycle for my third son.'
+//    } else if (firstSonAge < thirdSonAge || secondSonAge == firstSonAge) {
+//       return 'I need to buy a bicycle for my second son.'
+//    }
+// }
+// whoseBicycle(diary1, diary2, diary3);
